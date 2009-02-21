@@ -1,0 +1,8 @@
+PRGNAM="ardour"
+VERSION="2.7.1"
+HOMEPAGE="http://ardour.org"
+DOWNLOAD="http://releases.ardour.org/ardour-2.7.1.tar.bz2"
+MD5SUM="0fd4b1a600c75447d633b796bad321e1"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
