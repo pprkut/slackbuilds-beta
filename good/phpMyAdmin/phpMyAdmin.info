@@ -1,0 +1,7 @@
+PRGNAM="phpMyAdmin"
+VERSION="3.1.2"
+HOMEPAGE="http://www.phpmyadmin.net/"
+DOWNLOAD="http://downloads.sourceforge.net/phpmyadmin/phpMyAdmin-3.1.2-all-languages.tar.bz2"
+MD5SUM="cb6a6db5d684f94e71f864071b5b0d7a"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"

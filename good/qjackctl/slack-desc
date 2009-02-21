@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------|
+qjackctl: qjackctl - Qt GUI control for jack
+qjackctl:
+qjackctl: JACK Audio Connection Kit - Qt GUI Interface: A simple Qt
+qjackctl: application to control the JACK server. Written in C++ around
+qjackctl: the Qt4 toolkit for X11, most exclusively using Qt Designer.
+qjackctl: Provides a simple GUI dialog for setting several JACK server
+qjackctl: parameters, which are properly saved between sessions, and a
+qjackctl: way control of the status of the audio server.
+qjackctl:
+qjackctl: Homepage: http://qjackctl.sourceforge.net
+qjackctl:

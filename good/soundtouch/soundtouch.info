@@ -1,0 +1,8 @@
+PRGNAM="soundtouch"
+VERSION="1.4.0"
+HOMEPAGE="http://www.surina.net/soundtouch"
+DOWNLOAD="http://www.surina.net/soundtouch/soundtouch-1.4.0.tar.gz"
+MD5SUM="fc4bb10401624899efe4fb554d4fd3ed"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""

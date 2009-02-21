@@ -1,0 +1,40 @@
+#!/bin/sh
+
+PMA_DIR=${PMA_DIR:-/opt/phpMyAdmin}
+
+DOCUMENT_ROOT=$(grep -e "DocumentRoot \"" /etc/httpd/httpd.conf | grep -v "#" | cut -d " " -f 2 | cut -d "\"" -f 2)
+
+SERVER=$(grep -e "ServerName" /etc/httpd/httpd.conf | grep -v "#" | cut -d " " -f 2)
+
+generate_link(){
+    ln -s $PMA_DIR $DOCUMENT_ROOT/phpMyAdmin
+
+    echo "Link generated successfully"
+    echo $'phpMyAdmin can now be reached at:\n'
+    echo "http://$SERVER/phpMyAdmin/"
+    echo ""
+}
+
+
+if [ "$DOCUMENT_ROOT" = "" ]; then
+  echo "DocumentRoot not set in /etc/httpd/httpd.conf"
+  exit 1
+fi
+
+if [ -e "$DOCUMENT_ROOT/phpMyAdmin" ]; then
+  if [ -h "$DOCUMENT_ROOT/phpMyAdmin" ]; then
+    rm -f $DOCUMENT_ROOT/phpMyAdmin
+    generate_link
+  else
+    echo "Directory already exists!"
+    echo "Link generation failed!"
+    exit 1
+  fi
+else
+  if [ -e $DOCUMENT_ROOT ]; then
+    generate_link
+  else
+    mkdir -p $DOCUMENT_ROOT
+    generate_link
+  fi
+fi

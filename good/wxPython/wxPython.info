@@ -1,0 +1,8 @@
+PRGNAM="wxPython"
+VERSION="2.8.9.2"
+HOMEPAGE="http://wxPython.org/"
+DOWNLOAD="http://downloads.sourceforge.net/wxpython/wxPython-src-2.8.9.2.tar.bz2"
+MD5SUM="93eae4fc2bdec7074ef939134b85d0d3"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""

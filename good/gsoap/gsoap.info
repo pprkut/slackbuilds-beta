@@ -1,0 +1,8 @@
+PRGNAM="gsoup"
+VERSION="2.7.12"
+HOMEPAGE="http://gsoap2.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/gsoap2/gsoap_2.7.12.tar.gz"
+MD5SUM="2ad798072cd812a0d8c3aebadf557762"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""

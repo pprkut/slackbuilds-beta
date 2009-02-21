@@ -1,0 +1,91 @@
+#!/bin/sh
+
+# Slackware build script for phpMyAdmin
+
+# Copyright 2008-2009 Heinz Wiesinger <pprkut@liwjatan.at>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+PRGNAM=phpMyAdmin
+VERSION=3.1.2
+ARCH=${ARCH:-noarch}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_hmw}
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+AUTH_CONFIG=${AUTH_CONFIG:-no}
+MD5SUM=$(md5sum /etc/random-seed)
+BLOWFISH_SEED=${BLOWFISH_SEED:-${MD5SUM:0:32}}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION-all-languages
+tar xvf $CWD/$PRGNAM-$VERSION-all-languages.tar.bz2
+cd $PRGNAM-$VERSION-all-languages
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+mkdir -p $PKG/opt/phpMyAdmin $PKG/etc/phpMyAdmin $PKG/usr/{bin,sbin}
+
+cp -rf * $PKG/opt/phpMyAdmin/
+
+cp -f $PKG/opt/phpMyAdmin/config.sample.inc.php $PKG/etc/phpMyAdmin/config.inc.php.new
+ln -s /etc/phpMyAdmin/config.inc.php $PKG/opt/phpMyAdmin/config.inc.php
+
+# As this is recommended and Slackware has it per default, we'll use it
+# Switch mysql extension with mysqli
+sed -i "s/\['extension'\] = 'mysql'/\['extension'\] = 'mysqli'/" \
+  $PKG/etc/phpMyAdmin/config.inc.php.new
+
+if [ "$AUTH_CONFIG" = "no" ]; then
+  # Add a seed for blowfish-encryption
+  sed -i "s/\['blowfish_secret'\] = ''/\['blowfish_secret'\] = '$BLOWFISH_SEED'/" \
+    $PKG/etc/phpMyAdmin/config.inc.php.new
+else
+  # Change auth type to config and add default user/password lines
+  sed -i "s/\['auth_type'\] = 'cookie'/\['auth_type'\] = 'config'/" \
+    $PKG/etc/phpMyAdmin/config.inc.php.new
+  patch -p0 -d $PKG/etc/phpMyAdmin/ -i $CWD/config.inc.diff
+fi
+
+install -m 0755 $CWD/phpMyAdmin $PKG/usr/bin/phpMyAdmin
+install -m 0755 $CWD/pma-config $PKG/usr/sbin/pma-config
+
+mkdir -p $PKG/usr/share/{applications,pixmaps}
+cp -f $PKG/opt/$PRGNAM/favicon.ico $PKG/usr/share/pixmaps/phpMyAdmin.ico
+cp -f $CWD/$PRGNAM.desktop $PKG/usr/share/applications/
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a ChangeLog CREDITS docs.css Documentation* INSTALL LICENSE README \
+  RELEASE-DATE-$VERSION TODO translators* $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
