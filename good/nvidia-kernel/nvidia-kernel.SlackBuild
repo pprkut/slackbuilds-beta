@@ -24,13 +24,13 @@
 
 # Thanks to Robby Workman for suggestions to improve this script.
 
-KERNELVERSION=${KERNELVERSION:-$(uname -r)}
-KERNELPATH=${KERNELPATH:-/lib/modules/${KERNELVERSION}/build}
+KERNEL=${KERNEL:-$(uname -r)}
+KERNELPATH=${KERNELPATH:-/lib/modules/${KERNEL}/build}
 
 VERSION=180.29
 SRCNAM=NVIDIA-Linux-x86-$VERSION-pkg0
 PRGNAM=nvidia-kernel
-PKGVER=${VERSION}_$(echo $KERNELVERSION | tr - _)
+PKGVER=${VERSION}_$(echo $KERNEL | tr - _)
 
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
@@ -58,7 +58,7 @@ make SYSSRC=$KERNELPATH module || exit 1
 #make SYSSRC=$KERNELPATH install DESTDIR=$PKG || exit 1
 
 mkdir -p $PKG/lib/modules/$KERNELVERSION/kernel/drivers/video
-install -m 0664 nvidia.ko $PKG/lib/modules/$KERNELVERSION/kernel/drivers/video/
+install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
 cp -a README $PKG/usr/doc/$PRGNAM-$PKGVER
