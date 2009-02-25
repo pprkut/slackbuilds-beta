@@ -1,0 +1,8 @@
+PRGNAM="efibootmgr"
+VERSION="0.5.4"
+HOMEPAGE="http://linux.dell.com/efibootmgr/"
+DOWNLOAD="http://linux.dell.com/efibootmgr/efibootmgr-0.5.4.tar.gz"
+MD5SUM="cfcf24752d6461b73f7ba964bbf73169"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
