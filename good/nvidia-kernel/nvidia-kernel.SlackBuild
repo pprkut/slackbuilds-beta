@@ -57,7 +57,7 @@ make SYSSRC=$KERNELPATH module || exit 1
 # It seems better as DESTDIR doesn't work here, to install the module manually.
 #make SYSSRC=$KERNELPATH install DESTDIR=$PKG || exit 1
 
-mkdir -p $PKG/lib/modules/$KERNELVERSION/kernel/drivers/video
+mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/video
 install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
