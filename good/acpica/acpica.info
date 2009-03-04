@@ -1,0 +1,8 @@
+PRGNAM="acpica"
+VERSION="20090220"
+HOMEPAGE="http://www.acpica.org"
+DOWNLOAD="http://www.acpica.org/download/acpica-unix-20090220.tar.gz"
+MD5SUM="975490685b49a02e3c8572d28f842b53"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
