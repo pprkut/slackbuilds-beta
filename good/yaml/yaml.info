@@ -1,8 +1,0 @@
-PRGNAM="yaml"
-VERSION="0.68"
-HOMEPAGE="http://search.cpan.org/dist/YAML/"
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/I/IN/INGY/YAML-0.68.tar.gz"
-MD5SUM="4b4255360bb885acdba05314daa9129a"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
