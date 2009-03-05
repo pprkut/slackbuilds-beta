@@ -1,0 +1,8 @@
+PRGNAM="gnu-efi"
+VERSION="3.0g"
+HOMEPAGE="http://gnu-efi.sourceforge.net"
+DOWNLOAD="http://downloads.sourceforge.net/gnu-efi/gnu-efi_3.0g.orig.tar.gz"
+MD5SUM="458d05fee4b129a1e5ea5b18b7814c1e"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
