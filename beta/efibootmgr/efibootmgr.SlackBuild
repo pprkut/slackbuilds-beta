@@ -58,8 +58,16 @@ mkdir -p $PKG/usr
 
 make EXTRA_CFLAGS="$SLKCFLAGS" install BINDIR="$PKG/usr/sbin"
 
+mkdir -p $PKG/usr/man/man8
+install -m 755 src/man/man8/$PRGNAM.8 $PKG/usr/man/man8/
+
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+)
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING INSTALL README doc \

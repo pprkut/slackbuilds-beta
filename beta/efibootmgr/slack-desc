@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
           |-----handy-ruler--------------------------------------------------|
-efibootmgr: efibootmgr ()
+efibootmgr: efibootmgr (Tool to modify the EFI Boot Manager)
 efibootmgr:
+efibootmgr: This is efibootmgr, a Linux user-space application to modify the
+efibootmgr: Intel Extensible Firmware Interface (EFI) Boot Manager. This
+efibootmgr: application can create and destroy boot entries, change the boot
+efibootmgr: order, change the next running boot option, and more.
 efibootmgr:
-efibootmgr:
-efibootmgr:
-efibootmgr:
-efibootmgr: Homepage:
-efibootmgr:
+efibootmgr: Homepage: http://linux.dell.com/efibootmgr/
 efibootmgr:
 efibootmgr:
 efibootmgr:
