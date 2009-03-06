@@ -30,6 +30,12 @@ else
   GRAPHICS="-graphicssystem raster"
 fi
 
+if [ "${PHONON:-yes}" = "yes" ]; then
+  MEDIA="-phonon"
+else
+  MEDIA="-no-phonon"
+fi
+
 set -e
 
 rm -rf $PKG
@@ -54,23 +60,47 @@ if ! [ "${QTCOPY:-no}" = "no" ]; then
   patch -p0 -i $CWD/patches/0255-qtreeview-selection-columns-hidden.diff
   patch -p0 -i $CWD/patches/0274-shm-native-image-fix.diff
 fi
- 
+
+# The following two patches are taken from the qt.SlackBuild in -current
+if [ $ARCH = "i486" ]; then
+  patch -p1 -i $CWD/patches/qt.x86.cflags.diff
+fi
+
+# Fix path to mysql header
+patch -p1 -i $CWD/patches/qt.mysql.h.diff
+
 export CFLAGS="$SLKCFLAGS"
 export CXXFLAGS="$SLKCFLAGS"
 export OPENSOURCE_CXXFLAGS="$SLKCFLAGS"
 echo "yes" | ./configure \
-  -prefix /usr/lib/qt-$VERSION \
+  -prefix /usr/lib/qt4 \
   -no-separate-debug-info \
   -nomake examples \
   -nomake demos \
+  -qt-gif \
   -fast \
+  -system-libpng \
+  -system-libjpeg \
+  -system-zlib \
+  -dbus \
+  -I/usr/include/mysql -L/usr/lib/mysql -R/usr/lib/mysql -plugin-sql-mysql \
+  -webkit \
   -silent \
-  $GRAPHICS  
+  $GRAPHICS \
+  $MEDIA
 
 make
 make install INSTALL_ROOT=$PKG
 
-( cd $PKG/usr/lib ; ln -sf qt-$VERSION qt4 )
+( cd $PKG/usr/lib ; ln -sf qt4 qt-$VERSION )
+
+# Qt4 uses different library names than Qt3 so this should be safe
+# Link the shared libraries into /usr/lib:
+( cd $PKG/usr/lib
+  for file in qt4/lib/*.so* ; do
+    ln -sf $file .
+  done
+)
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -82,7 +112,7 @@ mkdir -p $PKG/usr/bin
     qdbusxml2cpp qhelpconverter qhelpgenerator qmake qt3to4 qtconfig rcc uic \
     uic3 xmlpatterns;
   do
-    ln -sf /usr/lib/qt-$VERSION/bin/$file ${file}-qt4 ;
+    ln -sf /usr/lib/qt4/bin/$file ${file}-qt4 ;
   done
 )
 
@@ -93,7 +123,7 @@ mkdir -p $PKG/usr/lib/pkgconfig
     QtHelp.pc QtNetwork.pc QtOpenGL.pc QtScript.pc QtScriptTools.pc QtSql.pc \
     QtSvg.pc QtTest.pc QtUiTools.pc QtWebKit.pc QtXml.pc QtXmlPatterns.pc ;
   do
-    ln -sf /usr/lib/qt-$VERSION/lib/pkgconfig/$file . ;
+    ln -sf /usr/lib/qt4/lib/pkgconfig/$file . ;
   done
 )
 
@@ -101,7 +131,7 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LGPL_EXCEPTION.txt INSTALL LICENSE.GPL* KNOWN.ISSUES \
   README changes-$VERSION \
   $PKG/usr/doc/$PRGNAM-$VERSION
-( cd $PKG/usr/doc/$PRGNAM-$VERSION ; ln -sf /usr/lib/qt-$VERSION/doc/html . )
+( cd $PKG/usr/doc/$PRGNAM-$VERSION ; ln -sf /usr/lib/qt4/doc/html . )
 
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

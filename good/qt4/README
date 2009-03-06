@@ -20,7 +20,10 @@ You can enable it by passing RASTER=yes to the script.
 Further you can enable the patches kde has included in its qt-copy
 tree by passing QTCOPY=yes to the script. This fixes some issues which
 make Qt apps nicer to use in kde(4). Descriptions of the individual
-patches are available in the respective diff or patch files.s
+patches are available in the respective diff or patch files.
+If you want to additionally *not* build with support for Phonon
+(as does qt in Slackware-current at the moment), you can pass
+PHONON=no to the script.
 
 WARNING: This requires *a lot* of harddisk space available on build time.
 Be sure to have at least 2GB of free diskspace.
