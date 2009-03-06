@@ -1,0 +1,8 @@
+PRGNAM="libarchive"
+VERSION="2.6.2"
+HOMEPAGE="http://code.google.com/p/libarchive/"
+DOWNLOAD="http://libarchive.googlecode.com/files/libarchive-2.6.2.tar.gz"
+MD5SUM="e31fcacd3f2b996988c0852a5edfc680"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
