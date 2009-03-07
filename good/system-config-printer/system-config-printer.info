@@ -1,0 +1,8 @@
+PRGNAM="system-config-printer"
+VERSION="1.1.5"
+HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
+DOWNLOAD="http://cyberelk.net/tim/data/system-config-printer/1.1/system-config-printer-1.1.5.tar.bz2"
+MD5SUM="02673e5db137fde1017d98dc7a4a66a5"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
