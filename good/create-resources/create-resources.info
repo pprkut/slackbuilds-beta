@@ -1,0 +1,8 @@
+PRGNAM="create-resources"
+VERSION="r32"
+HOMEPAGE="http://create.freedesktop.org/wiki/index.php/Main_Page"
+DOWNLOAD="http://www.liwjatan.at/files/src/create-resources-r32.tar.bz2"
+MD5SUM="166747a65633ad0b3e5082eb32611d08"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
