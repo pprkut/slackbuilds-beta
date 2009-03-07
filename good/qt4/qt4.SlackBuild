@@ -59,6 +59,7 @@ if ! [ "${QTCOPY:-no}" = "no" ]; then
   patch -p0 -i $CWD/patches/0245-fix-randr-changes-detecting.diff
   patch -p0 -i $CWD/patches/0255-qtreeview-selection-columns-hidden.diff
   patch -p0 -i $CWD/patches/0274-shm-native-image-fix.diff
+  patch -p0 -i $CWD/patches/0275-qtconcurrent-threadcount.diff
 fi
 
 # The following two patches are taken from the qt.SlackBuild in -current

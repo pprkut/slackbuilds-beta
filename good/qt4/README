@@ -16,7 +16,8 @@ stock CMake is already looking for "qmake-qt4" first).
 Qt 4.5 comes with a new graphicssystem backend named "raster" which
 outperforms the current standard one, but is disabled by default because
 it might not work with all Qt4 applications out there currently.
-You can enable it by passing RASTER=yes to the script.
+You can enable it by passing RASTER=yes to the script. Tests have shown
+that "normal" Qt4 apps work well with it, whereas KDE 4.2 does not.
 Further you can enable the patches kde has included in its qt-copy
 tree by passing QTCOPY=yes to the script. This fixes some issues which
 make Qt apps nicer to use in kde(4). Descriptions of the individual

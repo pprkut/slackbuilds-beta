@@ -1,0 +1,33 @@
+qt-bugs@ issue : none
+Qt Software task ID : 244718
+bugs.kde.org number : none
+applied: no
+author: Scott Wheeler <wheeler@kde.org>
+
+Calling idealThreadCount() calls sysconfig in every run, as well as ignoring
+the configured number of threads for the main thread pool.  The syscall overhead
+means that QtConcurrent is basically rendered useless for relatively atomic tasks
+since the advantages of parallelization are far less than the overhead.  In my
+tests this patch procuced a 30-50x improvement in performance on Linux.
+
+Index: src/corelib/concurrent/qtconcurrentreducekernel.h
+===================================================================
+--- src/corelib/concurrent/qtconcurrentreducekernel.h	(revision 936031)
++++ src/corelib/concurrent/qtconcurrentreducekernel.h	(working copy)
+@@ -210,12 +210,14 @@
+ 
+     inline bool shouldThrottle()
+     {
+-        return (resultsMapSize > (ReduceQueueThrottleLimit * QThread::idealThreadCount()));
++        return (resultsMapSize > (ReduceQueueThrottleLimit *
++                                  QThreadPool::globalInstance()->maxThreadCount()));
+     }
+ 
+     inline bool shouldStartThread()
+     {
+-        return (resultsMapSize <= (ReduceQueueStartLimit * QThread::idealThreadCount()));
++        return (resultsMapSize <= (ReduceQueueStartLimit *
++                                   QThreadPool::globalInstance()->maxThreadCount()));
+     }
+ };
+ 
