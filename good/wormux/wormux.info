@@ -1,0 +1,8 @@
+PRGNAM="wormux"
+VERSION="0.8.3"
+HOMEPAGE="http://wormux.org/wiki/en/index.php"
+DOWNLOAD="http://download.gna.org/wormux/wormux-0.8.3.tar.bz2"
+MD5SUM="c4235a844ad9f7337f1a8da2c5c1b820"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
