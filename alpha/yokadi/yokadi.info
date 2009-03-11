@@ -1,0 +1,8 @@
+PRGNAM="yokadi"
+VERSION="0.9.0"
+HOMEPAGE="http://yokadi.github.com/"
+DOWNLOAD="http://yokadi.github.com/download/yokadi-0.9.0.tar.bz2"
+MD5SUM="39fa9862039c2c3c8a87f6ad3c94433c"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""

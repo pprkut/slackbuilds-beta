@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+yokadi: yokadi (command-line todo-list manager)
+yokadi:
+yokadi: Yokadi is a command-line oriented, SQLite powered, TODO list tool.
+yokadi: It helps you organize all the things you have to do and you must not
+yokadi: forget. It aims to be simple, intuitive and very efficient.
+yokadi: In Yokadi you manage projects, which contains tasks. At the minimum,
+yokadi: a task has a title, but it can also have a description, a due date,
+yokadi: an urgency or keywords. Keywords can be any word that help you to
+yokadi: find and sort your tasks.
+yokadi:
+yokadi:
