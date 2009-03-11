@@ -65,8 +65,8 @@ cd $PRGNAM-$VERSION
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS -I/usr/include/openjpeg" \
+CXXFLAGS="$SLKCFLAGS -I/usr/include/openjpeg" \
 ./configure \
   --prefix=/usr \
   --mandir=/usr/man \
