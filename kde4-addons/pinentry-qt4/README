@@ -1,0 +1,4 @@
+pinentry-qt4 is a *alpha* quality pinentry client for
+use with gpg-agent. It currently lacks some features
+from the qt3 and gtk versions and exists merely for
+those, who want a pure qt4 environment.

@@ -1,0 +1,7 @@
+PRGNAM="pinentry-qt4"
+VERSION="r934480"
+HOMEPAGE=""
+DOWNLOAD="http://www.liwjatan.at/files/src/pinentry-qt4-r934480.tar.bz2"
+MD5SUM="b56015ffc5b90e1fba46b00e9958c84b"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"

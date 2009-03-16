@@ -1,0 +1,11 @@
+pinentry-qt4: pinentry-qt4 (Qt4-based gpg-agent pin entry app)
+pinentry-qt4:
+pinentry-qt4: pinentry-qt4 is a *alpha* quality pinentry client for
+pinentry-qt4: use with gpg-agent. It currently lacks some features
+pinentry-qt4: from the qt3 and gtk versions and exists merely for
+pinentry-qt4: those, who want a pure qt4 environment.
+pinentry-qt4:
+pinentry-qt4:
+pinentry-qt4:
+pinentry-qt4:
+pinentry-qt4:
