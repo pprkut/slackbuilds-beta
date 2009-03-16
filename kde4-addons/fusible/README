@@ -1,0 +1,3 @@
+Fusible is a graphical user interface (GUI) for all FUSE-based
+filesystems. Fusible uses plugins to add support of new FUSE
+filesystems like EncFS, SSHFS, CurlFTPFS and many more.

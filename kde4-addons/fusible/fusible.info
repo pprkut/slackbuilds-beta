@@ -1,0 +1,8 @@
+PRGNAM="fusible"
+VERSION="r38"
+HOMEPAGE="http://launchpad.net/fusible"
+DOWNLOAD="http://www.liwjatan.at/files/src/fusible-r38.tar.bz2"
+MD5SUM="5ef48cce16768e4eef2b9261e91df6d8"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
