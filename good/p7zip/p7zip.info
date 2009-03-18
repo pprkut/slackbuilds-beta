@@ -1,0 +1,8 @@
+PRGNAM="p7zip"
+VERSION="4.65"
+HOMEPAGE="http://p7zip.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/p7zip/p7zip_4.65_src_all.tar.bz2"
+MD5SUM="f78ed232436dc8f8be25a2f95d4e5f9a"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
