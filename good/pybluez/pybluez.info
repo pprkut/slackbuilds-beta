@@ -1,0 +1,8 @@
+PRGNAM="pybluez"
+VERSION="0.16"
+HOMEPAGE="http://code.google.com/p/pybluez/"
+DOWNLOAD="http://pybluez.googlecode.com/files/PyBluez-0.16.tar.gz"
+MD5SUM="2ce8ff0dbb94c6be14e92e9968f4c914"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
