@@ -1,8 +1,0 @@
-PRGNAM="mednafen"
-VERSION="0.8.B"
-HOMEPAGE="http://mednafen.sourceforge.net"
-DOWNLOAD="http://downloads.sourceforge.net/mednafen/mednafen-0.8.B.tar.bz2"
-MD5SUM="d1aab33cbb5d4e585724c19177f0f02f"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

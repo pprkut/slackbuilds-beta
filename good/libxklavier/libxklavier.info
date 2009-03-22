@@ -1,8 +1,0 @@
-PRGNAM="libxklavier"
-VERSION="3.8"
-HOMEPAGE="http://www.freedesktop.org/wiki/Software/LibXklavier"
-DOWNLOAD="http://downloads.sourceforge.net/gswitchit/libxklavier-3.8.tar.bz2"
-MD5SUM="e4f1b9e600c4159f39d38ab94d56cf9b"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
