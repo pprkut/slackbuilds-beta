@@ -1,8 +1,0 @@
-PRGNAM="libquicktime"
-VERSION="1.1.1"
-HOMEPAGE="http://libquicktime.sourceforge.net/"
-DOWNLOAD="http://downloads.sourceforge.net/libquicktime/libquicktime-1.1.1.tar.gz"
-MD5SUM="88df838a450b6c6768819d45bacc0926"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
