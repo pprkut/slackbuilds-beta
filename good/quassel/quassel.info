@@ -1,0 +1,8 @@
+PRGNAM="quassel"
+VERSION="0.4.1"
+HOMEPAGE="http://quassel-irc.org"
+DOWNLOAD="http://quassel-irc.org/pub/quassel-0.4.1.tar.bz2"
+MD5SUM="bf89e3ff2e12c64d9cf8b1445e46039f"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
