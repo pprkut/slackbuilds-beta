@@ -25,8 +25,8 @@
 
 PRGNAM=virtualbox-ose
 SRCNAM=VirtualBox
-SRCVER=2.2.0_BETA1
-VERSION=2.2.0beta1
+SRCVER=2.2.0_BETA2
+VERSION=2.2.0beta2
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -84,7 +84,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-2.2.0_OSE
-tar xvf $CWD/$SRCNAM-${SRCVER}_OSE.tar.bz2
+tar xvf $CWD/$SRCNAM-${SRCVER}-OSE.tar.bz2
 cd $SRCNAM-2.2.0_OSE
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
