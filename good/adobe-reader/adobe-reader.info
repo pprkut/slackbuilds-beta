@@ -1,0 +1,8 @@
+PRGNAM="adobe-reader"
+VERSION="9.1.0"
+HOMEPAGE="http://www.adobe.com/"
+DOWNLOAD="http://ardownload.adobe.com/pub/adobe/reader/unix/9.x/9.1/enu/AdbeRdr9.1.0-1_i486linux_enu.tar.bz2"
+MD5SUM="6f8279f55d57f4fa610a0e22a0eab861"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
