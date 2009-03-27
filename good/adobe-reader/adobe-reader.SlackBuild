@@ -66,6 +66,10 @@ cd $PKG/opt/Adobe
 rm -rf Reader9/Reader/HowTo
 rm -r Reader9/Browser/{HowTo,install_browser_plugin}
 
+#"fix" dirname error in acroread
+ORIG="mozillaPath=\"\`readlink \"\$MozPath\" | xargs dirname\`\""
+sed -i "s%$ORIG%mozillaPath=\"/usr/lib/seamonkey\"%" Reader9/bin/acroread
+
 # Add symlink for binary to /usr/bin
 cd $PKG/usr/bin
   ln -s /opt/Adobe/Reader9/bin/acroread acroread
