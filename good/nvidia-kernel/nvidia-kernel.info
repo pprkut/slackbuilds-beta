@@ -1,0 +1,8 @@
+PRGNAM="nvidia-kernel"
+VERSION="180.44"
+HOMEPAGE="http://www.nvidia.com"
+DOWNLOAD="http://us.download.nvidia.com/XFree86/Linux-x86/180.44/NVIDIA-Linux-x86-180.44-pkg0.run"
+MD5SUM="cd577950a63e9eae8aba27d594319a76"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
