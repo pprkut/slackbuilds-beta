@@ -1,8 +1,0 @@
-PRGNAM="ffmpeg"
-VERSION="0.5"
-HOMEPAGE="http://www.ffmpeg.org"
-DOWNLOAD="http://www.ffmpeg.org/releases/ffmpeg-0.5.tar.bz2"
-MD5SUM="be8503f15c3b81ba00eb8379ca8dcf33"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
