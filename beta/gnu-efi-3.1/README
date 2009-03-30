@@ -1,6 +1,0 @@
-Develop EFI applications for IA-64(IPF), IA-32(x86) , and (x86_64)
-platforms using the GNU toolchain and the EFI development
-environment.
-
-NOTE: This does not compile with multiple threads. Be sure to use
-MAKEFLAGS="-j1"
