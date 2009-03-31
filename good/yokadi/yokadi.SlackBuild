@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=yokadi
-VERSION=0.9.0
+VERSION=20090331
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -50,8 +50,9 @@ python setup.py install --root=$PKG
 find $PKG | xargs file | grep "shared object" | grep ELF | \
   cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a PKG-INFO README* doc $PKG/usr/doc/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/doc/
+mv $PKG/usr/share/$PRGNAM $PKG/usr/doc/$PRGNAM-$VERSION
+rmdir $PKG/usr/share
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

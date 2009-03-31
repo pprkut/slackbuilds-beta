@@ -1,0 +1,8 @@
+PRGNAM="yokadi"
+VERSION="20090331"
+HOMEPAGE="http://yokadi.github.com/"
+DOWNLOAD="http://www.liwjatan.at/files/src/yokadi-20090331.tar.bz2"
+MD5SUM="f9760da097cffe9f970309e95315be09"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
