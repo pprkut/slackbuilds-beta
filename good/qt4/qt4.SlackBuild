@@ -119,7 +119,7 @@ mkdir -p $PKG/usr/bin
 
 mkdir -p $PKG/usr/lib/pkgconfig
 ( cd $PKG/usr/lib/pkgconfig
-  for file in phonon.pc Qt3Support.pc QtAssistantClient.pc QtClucene.pc \
+  for file in phonon.pc Qt3Support.pc QtAssistantClient.pc QtCLucene.pc \
     QtCore.pc QtDBus.pc QtDesigner.pc QtDesignerComponents QtGui.pc \
     QtHelp.pc QtNetwork.pc QtOpenGL.pc QtScript.pc QtScriptTools.pc QtSql.pc \
     QtSvg.pc QtTest.pc QtUiTools.pc QtWebKit.pc QtXml.pc QtXmlPatterns.pc ;
