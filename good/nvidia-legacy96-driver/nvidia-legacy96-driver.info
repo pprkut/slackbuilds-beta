@@ -1,8 +1,0 @@
-PRGNAM="nvidia-legacy96-driver"
-VERSION="96.43.11"
-HOMEPAGE="http://www.nvidia.com"
-DOWNLOAD="http://us.download.nvidia.com/XFree86/Linux-x86/96.43.11/NVIDIA-Linux-x86-96.43.11-pkg0.run"
-MD5SUM="bf2661f00759f78cbad9f72eeecdc676"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
