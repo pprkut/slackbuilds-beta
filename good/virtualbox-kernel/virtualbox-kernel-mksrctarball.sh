@@ -10,8 +10,7 @@ set -e
 
 PRGNAM=virtualbox-kernel
 VBOX_VERSION=$(VBoxManage -v | grep -e ^[0-9].*_OSE)
-#VERSION=${VBOX_VERSION:0:5}
-VERSION=2.2.0beta2
+VERSION=${VBOX_VERSION:0:5}
 
 MODULE_SRC=$(grep "MODULE_SRC=" /etc/vbox/vbox.cfg | cut -d "=" -f 2 | cut -d "\"" -f 2)
 

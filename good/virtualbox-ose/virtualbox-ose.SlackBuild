@@ -25,8 +25,7 @@
 
 PRGNAM=virtualbox-ose
 SRCNAM=VirtualBox
-SRCVER=2.2.0_BETA2
-VERSION=2.2.0beta2
+VERSION=2.2.0
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -83,9 +82,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-2.2.0_OSE
-tar xvf $CWD/$SRCNAM-${SRCVER}-OSE.tar.bz2
-cd $SRCNAM-2.2.0_OSE
+rm -rf $SRCNAM-${VERSION}_OSE
+tar xvf $CWD/$SRCNAM-${VERSION}-OSE.tar.bz2
+cd $SRCNAM-${VERSION}_OSE
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
@@ -117,11 +116,20 @@ else
   qtgui+=" --disable-qt4"
 fi
 
+if [ "${WEBSERVICE:-no}" = "yes" ]; then
+    web_service="--enable-webservice"
+    vboxwebsrv="vboxwebsrv"
+else
+    web_service=""
+    vboxwebsrv=""
+fi
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --ose \
   --disable-kmods \
+  $web_service \
   $harden \
   $qtgui \
   $do_pulse
@@ -152,7 +160,7 @@ cd out/linux.x86/release/bin/
   mv $PKG/usr/lib/virtualbox/VBox.sh $PKG/usr/lib/virtualbox/VBox
 cd -
 
-for i in VirtualBox VBoxManage VBoxSDL VBoxHeadless VBoxVRDP; do
+for i in VirtualBox VBoxManage VBoxSDL VBoxHeadless VBoxVRDP $vboxwebsrv; do
   ln -s /usr/lib/virtualbox/VBox $PKG/usr/bin/$i ;
 done
 
@@ -162,8 +170,8 @@ if [ "$harden" = "--enable-hardening" ]; then
   done
 fi
 
-if [ -e "$CWD/VBoxGuestAdditions_$SRCVER.iso" ]; then
-  cp -f $CWD/VBoxGuestAdditions_$SRCVER.iso \
+if [ -e "$CWD/VBoxGuestAdditions_$VERSION.iso" ]; then
+  cp -f $CWD/VBoxGuestAdditions_$VERSION.iso \
     $PKG/usr/share/virtualbox/VBoxGuestAdditions.iso
 fi
 

@@ -26,12 +26,17 @@ If the VirtualBox Additions ISO is available in the same directory
 as the build script, it will be included in the package and placed
 under /usr/share/virtualbox/. Same goes for the UserManual
 They can be downloaded from:
-	http://download.virtualbox.org/virtualbox/2.2.0_BETA2/VBoxGuestAdditions_2.2.0_BETA2.iso
-	http://download.virtualbox.org/virtualbox/2.2.0_BETA2/UserManual.pdf
+	http://download.virtualbox.org/virtualbox/2.2.0/VBoxGuestAdditions_2.2.0.iso
+	http://download.virtualbox.org/virtualbox/2.2.0/UserManual.pdf
 
 To compile virtualbox without GUI pass QT4=no to the script.
+
+To enable the webservice pass WEBSERVICE=yes to the script. This adds gsoap
+to the list of required dependencies.
 
 For pulseaudio support, pass PULSE=yes to the build script. This requires
 pulseaudio to be installed.
 
 This requires acpica, and the virtualbox-kernel package is needed at runtime.
+
+All mentioned dependencies are available from SlackBuilds.org
