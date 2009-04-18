@@ -1,0 +1,8 @@
+PRGNAM="icecream"
+VERSION="0.9.3"
+HOMEPAGE="http://en.opensuse.org/Icecream"
+DOWNLOAD="ftp://ftp.suse.com/pub/projects/icecream/icecc-0.9.3.tar.bz2"
+MD5SUM="34bb950331ef5256299a2de4cf402ea6"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
