@@ -1,8 +1,0 @@
-PRGNAM="ddrescue"
-VERSION="1.10"
-HOMEPAGE="http://www.gnu.org/software/ddrescue/ddrescue.html"
-DOWNLOAD="http://ftp.gnu.org/gnu/ddrescue/ddrescue-1.10.tar.gz"
-MD5SUM="0472d22991a2c6231ac36b03bb49cfd5"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
