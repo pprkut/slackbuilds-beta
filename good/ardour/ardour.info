@@ -1,0 +1,8 @@
+PRGNAM="ardour"
+VERSION="2.8"
+HOMEPAGE="http://ardour.org"
+DOWNLOAD="http://www.liwjatan.at/files/src/ardour-2.8.tar.bz2"
+MD5SUM="24bd768dbe08f1f2724dc97704ee0518"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
