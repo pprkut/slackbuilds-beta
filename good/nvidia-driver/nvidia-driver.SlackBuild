@@ -25,7 +25,7 @@
 # Thanks to Robby Workman for suggestions to improve this script.
 
 PRGNAM=nvidia-driver
-VERSION=180.44
+VERSION=180.51
 ARCH=${ARCH:-i586}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
