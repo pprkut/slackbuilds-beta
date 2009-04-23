@@ -1,0 +1,8 @@
+PRGNAM="gammu"
+VERSION="1.24.0"
+HOMEPAGE="http://cihar.com/gammu/"
+DOWNLOAD="http://dl.cihar.com/gammu/releases/gammu-1.24.0.tar.bz2"
+MD5SUM="f805d6d93ca7064f6d04eb3c6b24168f"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
