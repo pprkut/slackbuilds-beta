@@ -1,0 +1,8 @@
+PRGNAM="transcode"
+VERSION="1.1.2"
+HOMEPAGE="http://www.transcoding.org/"
+DOWNLOAD="http://download.berlios.de/tcforge/transcode-1.1.2.tar.bz2"
+MD5SUM="753f7ee4ae154aac1527ceda9d085e65"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
