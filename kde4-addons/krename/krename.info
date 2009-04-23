@@ -1,0 +1,8 @@
+PRGNAM="krename"
+VERSION="3.9.2"
+HOMEPAGE="http://www.krename.net"
+DOWNLOAD="http://downloads.sourceforge.net/krename/krename-3.9.2.tar.bz2"
+MD5SUM="2515c6d035b2365fe4b6b7ea9b4d9858"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
