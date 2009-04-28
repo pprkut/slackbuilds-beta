@@ -25,7 +25,7 @@
 
 PRGNAM=virtualbox-ose
 SRCNAM=VirtualBox
-VERSION=2.2.0
+VERSION=2.2.2
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -67,6 +67,14 @@ if [ "${HARDENING:-yes}" = "yes" ]; then
   VBOXUSERS="yes"
 else
   harden="--disable-hardening"
+fi
+
+if [ "${WEBSERVICE:-no}" = "yes" ]; then
+    web_service="--enable-webservice"
+    vboxwebsrv="vboxwebsrv"
+else
+    web_service=""
+    vboxwebsrv=""
 fi
 
 if [ "$ARCH" = "i486" ]; then
@@ -114,14 +122,6 @@ if [ "${QT4:-yes}" = "yes" ]; then
     $PKG/usr/share/applications/VirtualBox.desktop
 else
   qtgui+=" --disable-qt4"
-fi
-
-if [ "${WEBSERVICE:-no}" = "yes" ]; then
-    web_service="--enable-webservice"
-    vboxwebsrv="vboxwebsrv"
-else
-    web_service=""
-    vboxwebsrv=""
 fi
 
 CFLAGS="$SLKCFLAGS" \

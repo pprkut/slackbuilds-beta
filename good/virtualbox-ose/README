@@ -26,8 +26,8 @@ If the VirtualBox Additions ISO is available in the same directory
 as the build script, it will be included in the package and placed
 under /usr/share/virtualbox/. Same goes for the UserManual
 They can be downloaded from:
-	http://download.virtualbox.org/virtualbox/2.2.0/VBoxGuestAdditions_2.2.0.iso
-	http://download.virtualbox.org/virtualbox/2.2.0/UserManual.pdf
+	http://download.virtualbox.org/virtualbox/2.2.2/VBoxGuestAdditions_2.2.2.iso
+	http://download.virtualbox.org/virtualbox/2.2.2/UserManual.pdf
 
 To compile virtualbox without GUI pass QT4=no to the script.
 
