@@ -59,6 +59,7 @@ if ! [ "${QTCOPY:-no}" = "no" ]; then
   patch -p0 -i $CWD/patches/0255-qtreeview-selection-columns-hidden.diff
   patch -p0 -i $CWD/patches/0274-shm-native-image-fix.diff
   patch -p0 -i $CWD/patches/0279-svg-rendering-regression.diff
+  patch -p0 -i $CWD/patches/0280-deserialization-custom-dbus-properties.diff
 fi
 
 # The following two patches are taken from the qt.SlackBuild in -current
