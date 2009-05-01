@@ -24,7 +24,7 @@
 
 PRGNAM=virtualbox-ose-addons
 SRCNAM=VirtualBox
-VERSION=2.2.0
+VERSION=2.2.2
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -93,9 +93,12 @@ cp -f src/VBox/Additions/linux/installer/vboxadd-timesync.sh $PKG/etc/rc.d/rc.vb
 cp -f src/VBox/Additions/x11/Installer/vboxclient.desktop $PKG/etc/xdg/autostart/
 cp -f src/VBox/Additions/x11/Installer/vboxclient.desktop $PKG/usr/share/autostart/
 install -m 755 src/VBox/Additions/x11/Installer/VBoxRandR.sh $PKG/usr/bin/VBoxRandR
+install -m 755 src/VBox/Additions/x11/Installer/98vboxadd-xclient $PKG/usr/bin/VBoxClient-all
 
 echo "KERNEL==\"vboxadd\", NAME=\"vboxadd\", OWNER=\"vboxadd\", MODE=\"0660\"" \
  > $PKG/lib/udev/rules.d/60-vboxadd.rules
+echo "KERNEL==\"vboxuser\", NAME=\"vboxuser\", OWNER=\"vboxadd\", MODE=\"0666\"" \
+ >> $PKG/lib/udev/rules.d/60-vboxadd.rules
 
 cd out/linux.x86/release/bin/additions
   cp -rf src/vboxadd $PKG/usr/src/vboxadd-$VERSION
@@ -120,9 +123,6 @@ cd out/linux.x86/release/bin/additions
 #  install -m 0644 VBoxOGL.so /usr/lib
 #  mkdir -p $PKG/usr/lib/dri
 #  ln -s /usr/lib/VBoxOGL.so $PKG/usr/lib/dri/vboxvideo_dri.so
-
-  chown vboxadd:1 $PKG/usr/bin/VBoxClient
-  chmod 4755 $PKG/usr/bin/VBoxClient
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
