@@ -1,8 +1,0 @@
-PRGNAM="egenix-mx-base"
-VERSION="3.1.2"
-HOMEPAGE="http://www.egenix.com/products/python/mxBase/"
-DOWNLOAD="http://downloads.egenix.com/python/egenix-mx-base-3.1.2.tar.gz"
-MD5SUM="b18b621deb07d503668ba0745e7af971"
-MAINTAINER="ppr:kut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
