@@ -1,0 +1,8 @@
+PRGNAM="opengtl"
+VERSION="0.9.9"
+HOMEPAGE="http://www.opengtl.org/"
+DOWNLOAD="http://www.opengtl.org/download/OpenGTL-0.9.9.tar.bz2"
+MD5SUM="1e06d59206a78c48acfa516a701cc7e1"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
