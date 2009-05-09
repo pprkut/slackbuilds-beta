@@ -4,4 +4,5 @@ parts and with some Python bindings (pycups) for the CUPS API. It is largely
 the same as using the CUPS web interface for configuring printers, but has the
 advantage of being a native application rather than a web page.
 
-system-config-printer depends on pycups, which is also available from SlackBuilds.org
+system-config-printer depends on pycups and notify-python. Both are available
+from SlackBuilds.org
