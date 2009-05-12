@@ -1,0 +1,8 @@
+PRGNAM="perl-module-build"
+VERSION="0.2808_01"
+HOMEPAGE="http://search.cpan.org/dist/Module-Build/"
+DOWNLOAD="http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Module-Build-0.2808_01.tar.gz"
+MD5SUM="d272b213e748a9c70990df37b7e8cee4"
+MAINTAINER="ppr:kut"
+EMAIL="pprkut@liwjatan.at"
+APPROVED=""
