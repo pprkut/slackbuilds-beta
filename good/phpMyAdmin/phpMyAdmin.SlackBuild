@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=phpMyAdmin
-VERSION=3.1.4
+VERSION=3.1.5
 ARCH=${ARCH:-noarch}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_hmw}
@@ -71,12 +71,7 @@ else
   patch -p0 -d $PKG/etc/phpMyAdmin/ -i $CWD/config.inc.diff
 fi
 
-install -m 0755 $CWD/phpMyAdmin $PKG/usr/bin/phpMyAdmin
 install -m 0755 $CWD/pma-config $PKG/usr/sbin/pma-config
-
-mkdir -p $PKG/usr/share/{applications,pixmaps}
-cp -f $PKG/opt/$PRGNAM/favicon.ico $PKG/usr/share/pixmaps/phpMyAdmin.ico
-cp -f $CWD/$PRGNAM.desktop $PKG/usr/share/applications/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a ChangeLog CREDITS docs.css Documentation* INSTALL LICENSE README \
