@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=qsynth
-VERSION=0.3.3
+VERSION=0.3.4
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -58,7 +58,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --disable-static \
   --with-qt=/usr/lib/qt4 \
   --build=$ARCH-slackware-linux
 
