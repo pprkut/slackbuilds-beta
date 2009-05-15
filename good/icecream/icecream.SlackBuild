@@ -24,7 +24,7 @@
 
 PRGNAM=icecream
 SRCNAM=icecc
-VERSION=0.9.3
+VERSION=0.9.4
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -61,8 +61,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --disable-static \
-  --build=$ARCH-slackware-linux \
-  --host=$ARCH-slackware-linux
+  --build=$ARCH-slackware-linux
 
 make
 make install-strip DESTDIR=$PKG
@@ -75,12 +74,13 @@ chmod 0755 $PKG/etc/profile.d/*
 mkdir -p $PKG/etc/rc.d
 install -m 0755 $CWD/rc.iceccd $PKG/etc/rc.d/rc.iceccd.new
 install -m 0755 $CWD/rc.scheduler $PKG/etc/rc.d/rc.scheduler.new
-cat $CWD/rc.icecream.conf > $PKG/etc/rc.d/rc.icecream.conf.new
+install -m 0644 $CWD/rc.icecream.conf $PKG/etc/rc.d/rc.icecream.conf.new
 
 mkdir -p $PKG/opt/icecream/bin
-for i in g++ gcc cc c++; do
-  ln -s /usr/bin/icecc $PKG/opt/icecream/bin/$i
-  rm -f $PKG/usr/bin/$i
+for i in g++ gcc cc c++ i486-slackware-linux-c++ \
+  i486-slackware-linux-g++ i486-slackware-linux-gcc; do
+    ln -s /usr/bin/icecc $PKG/opt/icecream/bin/$i
+    rm -f $PKG/usr/bin/$i
 done
 
 mkdir -p $PKG/usr/man/{man1,man7}
