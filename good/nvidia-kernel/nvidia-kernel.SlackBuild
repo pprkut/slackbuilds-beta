@@ -27,7 +27,7 @@
 KERNEL=${KERNEL:-$(uname -r)}
 KERNELPATH=${KERNELPATH:-/lib/modules/${KERNEL}/build}
 
-VERSION=180.51
+VERSION=180.60
 SRCNAM=NVIDIA-Linux-x86-$VERSION-pkg0
 PRGNAM=nvidia-kernel
 PKGVER=${VERSION}_$(echo $KERNEL | tr - _)
