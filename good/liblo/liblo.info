@@ -1,8 +1,0 @@
-PRGNAM="liblo"
-VERSION="0.26"
-HOMEPAGE="http://liblo.sourceforge.net/"
-DOWNLOAD="http://downloads.sourceforge.net/liblo/liblo-0.26.tar.gz"
-MD5SUM="5351de14262560e15e7f23865293b16f"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

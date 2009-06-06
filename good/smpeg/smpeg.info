@@ -1,8 +1,0 @@
-PRGNAM="smpeg"
-VERSION="r374"
-HOMEPAGE="http://icculus.org/smpeg/"
-DOWNLOAD="http://www.liwjatan.at/files/src/smpeg-r374.tar.bz2"
-MD5SUM="10b4b5e015a745c51fdbb05451e9916f"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

@@ -1,8 +1,0 @@
-PRGNAM="fluidsynth"
-VERSION="1.0.9"
-HOMEPAGE="http://www.fluidsynth.org/"
-DOWNLOAD="http://download.savannah.gnu.org/releases/fluid/fluidsynth-1.0.9.tar.gz"
-MD5SUM="5847552e09528fc91dca88f10cb9391c"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
