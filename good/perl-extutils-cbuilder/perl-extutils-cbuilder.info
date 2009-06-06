@@ -1,8 +1,0 @@
-PRGNAM="perl-extutils-cbuilder"
-VERSION="0.21"
-HOMEPAGE="http://search.cpan.org/dist/ExtUtils-CBuilder/"
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/ExtUtils-CBuilder-0.21.tar.gz"
-MD5SUM="aa5050d68d65858cdf58ceeef84d6bb2"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

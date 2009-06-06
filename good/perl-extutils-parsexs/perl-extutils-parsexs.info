@@ -1,8 +1,0 @@
-PRGNAM="perl-extutils-parsexs"
-VERSION="2.18"
-HOMEPAGE="http://search.cpan.org/dist/ExtUtils-ParseXS/"
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/ExtUtils-ParseXS-2.18.tar.gz"
-MD5SUM="473a59a9a4b9887137dab156e5312ff7"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
