@@ -91,13 +91,11 @@ make -C contrib/src/gizmos install DESTDIR=$PKG
 make -C contrib/src/stc install DESTDIR=$PKG
 
 # we need to modify wxGTK's config file a bit to get correct include and lib paths.
-if [ "$ARCH" = "x86_64" ]; then
-  INC="/wx/include/gtk2-unicode-release-2.8"
-  sed -i "s|-I\${libdir}$INC|-I$TMP/$PRGNAM-src-$VERSION/lib$INC|" \
-    ./lib/wx/config/gtk2-unicode-release-2.8
-  sed -i "s|-L/usr/X11R6/lib64|-L/usr/X11R6/lib64 -L$PKG/usr/lib64|" \
-    ./lib/wx/config/gtk2-unicode-release-2.8
-fi
+INC="/wx/include/gtk2-unicode-release-2.8"
+sed -i "s|-I\${libdir}$INC|-I$TMP/$PRGNAM-src-$VERSION/lib$INC|" \
+  ./lib/wx/config/gtk2-unicode-release-2.8
+sed -i "s|-L/usr/X11R6/lib$LIBDIRSUFFIX|-L/usr/X11R6/lib$LIBDIRSUFFIX -L$PKG/usr/lib$LIBDIRSUFFIX|" \
+  ./lib/wx/config/gtk2-unicode-release-2.8
 
 cd wxPython
   python setup.py \
