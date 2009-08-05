@@ -1,8 +1,0 @@
-PRGNAM="virtualbox-ose-addons"
-VERSION="2.2.2"
-HOMEPAGE="http://www.virtualbox.org"
-DOWNLOAD="http://download.virtualbox.org/virtualbox/2.2.2/VirtualBox-2.2.2-OSE.tar.bz2"
-MD5SUM="82a76247b63e1813695175e7ddf01975"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

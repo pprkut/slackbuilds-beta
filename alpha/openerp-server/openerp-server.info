@@ -1,8 +1,0 @@
-PRGNAM="openerp-server"
-VERSION="5.0.0"
-HOMEPAGE="http://www.openerp.com"
-DOWNLOAD="http://www.openerp.com/download/stable/source/openerp-server-5.0.0-3.tar.gz"
-MD5SUM="2385deb2f18ac5238413715ca5d082c9"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

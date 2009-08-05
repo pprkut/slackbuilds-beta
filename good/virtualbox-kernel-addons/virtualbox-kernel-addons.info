@@ -1,8 +1,0 @@
-PRGNAM="virtualbox-kernel-addons"
-VERSION="2.2.2"
-HOMEPAGE="http://www.virtualbox.org"
-DOWNLOAD="http://www.liwjatan.at/files/src/virtualbox-kernel-addons-2.2.2.tar.bz2"
-MD5SUM="0999a7c8bd4e76b04e5b7168a665d4ee"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

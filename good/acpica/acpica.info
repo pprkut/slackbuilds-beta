@@ -1,8 +1,0 @@
-PRGNAM="acpica"
-VERSION="20090521"
-HOMEPAGE="http://www.acpica.org"
-DOWNLOAD="http://www.acpica.org/download/acpica-unix-20090521.tar.gz"
-MD5SUM="b2b4aa10adcb9a6faa7ce5eaaf29fcfd"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""

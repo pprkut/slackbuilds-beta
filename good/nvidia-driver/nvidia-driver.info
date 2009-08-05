@@ -1,8 +1,0 @@
-PRGNAM="nvidia-driver"
-VERSION="185.18.14"
-HOMEPAGE="http://www.nvidia.com"
-DOWNLOAD="ftp://download.nvidia.com/XFree86/Linux-x86/185.18.14/NVIDIA-Linux-x86-185.18.14-pkg0.run"
-MD5SUM="a91d31a9dec5deb2f9e4ca9a09e0019f"
-MAINTAINER="pprkut"
-EMAIL="pprkut@liwjatan.at"
-APPROVED=""
