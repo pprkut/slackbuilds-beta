@@ -1,0 +1,6 @@
+The Create Project provides shared resources for use by creative
+applications such as Blender, CinePaint, the GIMP, Inkscape, Scribus,
+Audacity and the Open Clip Art Library.
+The package includes brushes, color swatches files, gradients, etc.,
+so that the user doesn't need to install all of these resources
+separately for each and every application that can read such data.
