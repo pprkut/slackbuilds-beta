@@ -4,5 +4,3 @@ from a central core -- much like the popular combination of screen
 and a text-based IRC client such as WeeChat, but graphical. In
 addition to this uniqe feature, we aim to bring a pleasurable,
 comfortable chatting experience to all major platforms.
-
-quassel depends on qt4, which is also available from SlackBuilds.org
