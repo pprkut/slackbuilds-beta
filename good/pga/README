@@ -1,0 +1,7 @@
+Program  Algebra (PGA) is an algebraic framework for sequential
+programming.  It is intended to contribute to a  better
+understanding of sequential programming.  A very simple program
+notation is used as basis for development of other program
+notations.
+
+pga requires graphviz, also available from SlackBuilds.org

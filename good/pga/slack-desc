@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+   |-----handy-ruler--------------------------------------------------|
+pga: pga (Program Algebra Toolset)
+pga:
+pga: Program  Algebra (PGA) is an algebraic framework for sequential
+pga: programming.  It is intended to contribute to a  better
+pga: understanding of sequential programming.  A very simple program
+pga: notation is used as basis for development of other program
+pga: notations.
+pga:
+pga: Homepage: http://www.science.uva.nl/research/prog/projects/pga/
+pga:
+pga:
