@@ -8,12 +8,12 @@
         |-----handy-ruler----------------------------------------------------|
 icecream: icecream (network-distributed compilation)
 icecream:
-icecream: icecream is the next generation distcc.
-icecream:
-icecream: Homepage: http://en.opensuse.org/Icecream
-icecream:
-icecream:
-icecream:
-icecream:
-icecream:
-icecream:
+icecream: Icecream is a distributed compile system. It allows parallel
+icecream: compiling by distributing the compile jobs to several nodes of a
+icecream: compile network running the statistics information to the icecc
+icecream: monitor. Each compile node can accept one or more compile jobs
+icecream: depending on the number of processors and the settings of icecc
+icecream: daemon. The icecc scheduler routes the jobs and provides status
+icecream: and the daemon. Link jobs and other jobs which cannot be
+icecream: distributed are executed locally on the node where the compilation
+icecream: is started.

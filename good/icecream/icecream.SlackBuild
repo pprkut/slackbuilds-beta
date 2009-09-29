@@ -77,7 +77,7 @@ chmod 0755 $PKG/etc/profile.d/*
 # Install init script
 mkdir -p $PKG/etc/rc.d
 install -m 0755 $CWD/rc.iceccd $PKG/etc/rc.d/rc.iceccd.new
-install -m 0755 $CWD/rc.scheduler $PKG/etc/rc.d/rc.scheduler.new
+install -m 0755 $CWD/rc.icecc-scheduler $PKG/etc/rc.d/rc.icecc-scheduler.new
 install -m 0644 $CWD/rc.icecream.conf $PKG/etc/rc.d/rc.icecream.conf.new
 
 mkdir -p $PKG/opt/icecream/bin

@@ -17,14 +17,14 @@ if [ -e etc/rc.d/rc.iceccd ]; then
   mv etc/rc.d/rc.iceccd.new.incoming etc/rc.d/rc.iceccd.new
 fi
 
-# Keep same perms on rc.scheduler.new:
-if [ -e etc/rc.d/rc.scheduler ]; then
-  cp -a etc/rc.d/rc.scheduler etc/rc.d/rc.scheduler.new.incoming
-  cat etc/rc.d/rc.scheduler.new > etc/rc.d/rc.scheduler.new.incoming
-  mv etc/rc.d/rc.scheduler.new.incoming etc/rc.d/rc.scheduler.new
+# Keep same perms on rc.icecc-scheduler.new:
+if [ -e etc/rc.d/rc.icecc-scheduler ]; then
+  cp -a etc/rc.d/rc.icecc-scheduler etc/rc.d/rc.icecc-scheduler.new.incoming
+  cat etc/rc.d/rc.icecc-scheduler.new > etc/rc.d/rc.icecc-scheduler.new.incoming
+  mv etc/rc.d/rc.icecc-scheduler.new.incoming etc/rc.d/rc.icecc-scheduler.new
 fi
 
 config etc/rc.d/rc.iceccd.new
 config etc/rc.d/rc.icecream.conf.new
-config etc/rc.d/rc.scheduler.new
+config etc/rc.d/rc.icecc-scheduler.new
 
