@@ -1,0 +1,4 @@
+VBoxTool currently consist only of a set of scripts. With this
+scripts, virtual machines of VirtualBox in a Linux headless
+server can be controlled. Start, stop, save, backup and show
+status of sessions in batch mode from the command line.

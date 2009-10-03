@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+        |-----handy-ruler--------------------------------------------------|
+vboxtool: vboxtool (Headless management of VirtualBox)
+vboxtool:
+vboxtool: VBoxTool currently consist only of a set of scripts. With this
+vboxtool: scripts, virtual machines of VirtualBox in a Linux headless
+vboxtool: server can be controlled. Start, stop, save, backup and show
+vboxtool: status of sessions in batch mode from the command line.
+vboxtool:
+vboxtool: Homepage: http://vboxtool.sourceforge.net/
+vboxtool:
+vboxtool:
+vboxtool:
