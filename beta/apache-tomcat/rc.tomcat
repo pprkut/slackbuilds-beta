@@ -1,0 +1,51 @@
+#!/bin/sh
+# Start/stop/restart apache-tomcat.
+# $Id: rc.apache-tomcat,v 1.1 2009/10/04
+# Author: Heinz Wiesinger <pprkut@liwjatan.at>
+# ---------------------------------------------------------------------------
+
+PIDFILE="/var/spool/tomcat/tomcat.pid"
+LOGFILE="/var/log/tomcat/tomcat.log"
+
+CLASSPATH="/usr/share/tomcat/bin/bootstrap.jar:/usr/share/java/commons-daemon.jar"
+for i in /usr/share/tomcat/lib/*.jar; do
+    CLASSPATH=$CLASSPATH:$i
+done
+
+USER="tomcat"
+
+TOMCAT_CMD="/usr/bin/jsvc -user $USER -cp $CLASSPATH \
+  -pidfile $PIDFILE -outfile $LOGFILE -errfile $LOGFILE \
+  org.apache.catalina.startup.Bootstrap"
+
+tomcat_start() {
+  echo "Starting Apache Tomcat ... "
+  cd /var/lib/tomcat
+    $TOMCAT_CMD
+}
+
+tomcat_stop() {
+  echo "Stopping Apache Tomcat ... "
+  kill -TERM `cat $PIDFILE` > /dev/null 2>&1
+}
+
+# Restart tomcat:
+tomcat_restart() {
+  tomcat_stop
+  sleep 1
+  tomcat_start
+}
+
+case "$1" in
+'start')
+  tomcat_start
+  ;;
+'stop')
+  tomcat_stop
+  ;;
+'restart')
+  tomcat_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac
