@@ -5,6 +5,6 @@ DOWNLOAD="http://www.science.uva.nl/pub/programming-research/software/pga/pga-1.
 DOWNLOAD_x86_64=""
 MD5SUM="d3b2e9e13b40e980de61cc450583f247"
 MD5SUM_x86_64=""
-MAINTAINER="pprkut"
+MAINTAINER="Heinz Wiesinger"
 EMAIL="pprkut@liwjatan.at"
 APPROVED=""

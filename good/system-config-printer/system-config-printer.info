@@ -5,6 +5,6 @@ DOWNLOAD="http://cyberelk.net/tim/data/system-config-printer/1.1/system-config-p
 MD5SUM=""
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-MAINTAINER="pprkut"
+MAINTAINER="Heinz Wiesinger"
 EMAIL="pprkut@liwjatan.at"
 APPROVED=""
