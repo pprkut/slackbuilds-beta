@@ -2,7 +2,7 @@
 
 # Slackware build script for virtualbox-ose
 
-# Copyright 2008-2009 Heinz Wiesinger <pprkut@liwjatan.at>
+# Copyright 2008-2009 Heinz Wiesinger, Amsterdam, Netherlands
 # Copyright 2008 Mauro Giachero <mauro.giachero@gmail.com>
 # All rights reserved.
 #
@@ -25,7 +25,7 @@
 
 PRGNAM=virtualbox-ose
 SRCNAM=VirtualBox
-VERSION=3.0.6
+VERSION=3.0.8
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
