@@ -1,0 +1,4 @@
+This is the postgresql plugin for Qt4.
+
+libqsqlpsql requires postgresql, which is also available
+from SlackBuilds.org
