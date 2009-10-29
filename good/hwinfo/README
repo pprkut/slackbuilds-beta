@@ -1,0 +1,4 @@
+A simple program that lists results from the hardware detection
+library.
+
+hwinfo requires libx86emu, which is also available from SlackBuilds.org
