@@ -94,6 +94,7 @@ mkdir -p $PKG/lib/udev/rules.d $PKG/sbin \
   $PKG/usr/share/hal/fdi/policy/20thirdparty
 
 cp -f src/VBox/Additions/linux/installer/vboxadd.sh $PKG/etc/rc.d/rc.vboxadd.new
+patch -d $PKG/etc/rc.d/ -i $CWD/rc.vboxadd.diff
 cp -f src/VBox/Additions/linux/installer/vboxadd-service.sh $PKG/etc/rc.d/rc.vboxadd-service.new
 
 cp -f src/VBox/Additions/x11/Installer/vboxclient.desktop $PKG/etc/xdg/autostart/
