@@ -133,6 +133,10 @@ mkdir -p $PKG/usr/{lib$LIBDIRSUFFIX,share,include}/virtualbox \
 
 cp -f src/VBox/Installer/linux/vboxdrv.sh.in $PKG/etc/rc.d/rc.vboxdrv.new
 sed -i "s/%PACKAGE%/virtualbox/g" $PKG/etc/rc.d/rc.vboxdrv.new
+sed -i "s/%NOLSB%/yes/" $PKG/etc/rc.d/rc.vboxdrv.new
+sed -i "s/%DEBIAN%/no/" $PKG/etc/rc.d/rc.vboxdrv.new
+sed -i "s/\[ -z \"\$DEBIAN\"/#\[ -z \"\$DEBIAN\"/" $PKG/etc/rc.d/rc.vboxdrv.new
+
 cp -f $CWD/vbox.cfg $PKG/etc/vbox/vbox.cfg.new
 sed -i "s|LIBDIR|lib$LIBDIRSUFFIX|" $PKG/etc/vbox/vbox.cfg.new
 cp -f $CWD/virtualbox.default $PKG/etc/default/virtualbox.new
