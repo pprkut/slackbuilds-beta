@@ -1,0 +1,10 @@
+xtuple-updater is a qt application for updating the xtuple
+database for a new release.
+
+The required update-scripts can be obtained from the sourceforge
+project page (http://www.sourceforge.net/projects/postbooks).
+They are named for example pb331to340, which would contain
+the files necessary to update from xtuple-3.3.1 to 3.4.0.
+
+Requires libqsqlpsql, openrpt and xtuple. All of which are available
+from SlackBuilds.org.
