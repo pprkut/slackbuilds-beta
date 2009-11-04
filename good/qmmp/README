@@ -1,0 +1,6 @@
+This program is an audio-player, based on the Qt libraries. The
+user interface is similar to winamp or xmms.
+
+qmmp can use jack-audio-connection-kit, libsamplerate, libsndfile,
+libmpcdec, pulseaudio and faad2, but none of them are required.
+All of those are available on SlackBuilds.org
