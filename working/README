@@ -1,0 +1,3 @@
+This directory contains already working scripts. The major difference between "good" and "working"
+is missing documentation, lack of testing, beta quality upstream software or conflicts with scripts
+in either "good" or on SlackBuilds.org.

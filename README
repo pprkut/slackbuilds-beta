@@ -1,0 +1,24 @@
+This is a repository of my Work-In-Progress SlackBuilds. A lot of the scripts
+available here will sooner or later find their way to SlackBuilds.org.
+I consider most of the scripts here beta-quality, hence the name of the repository.
+If you want stable, tested scripts head over to SlackBuilds.org.
+
+The scripts are divided into multiple subdirectories, which reflect their current
+state of development:
+ - "not-working" contains script that will not build as is on the most recent Slackware
+   version.
+
+ - "working" contains scripts that are basically ok, but lack other points required to
+   mark them stable, like missing documentation, conflicts with other scripts, lack
+   of testing, etc
+
+ - "good" contains the scripts I consider ready for submission to SlackBuilds.org.
+   All of my scripts that are currently in pending or READY on SlackBuilds.org are
+   available from here, but will disappear as soon as they are available from the
+   public repository there.
+
+ - "current" contains scripts that will only work on Slackware-current
+
+ - "non-SBo" contains scripts that are for one or the other reason not acceptable
+   on SlackBuilds.org. The quality of those scripts is on the same level as of
+   those in "good"
