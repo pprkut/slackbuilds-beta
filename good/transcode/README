@@ -5,14 +5,17 @@ the frames (export modules). It supports elementary video and audio frame
 transformations, including de-interlacing or fast resizing of video frames
 and loading of external filters.
 
-This requires ffmpeg and libmpeg2, and can optionally use lame.
+This requires ffmpeg and can optionally use lame.
 
 You can enable some optional (not-autodetected) features by
 passing variables to the script:
 A52DEC=yes|no (default: no), requires a52dec
 FAAC=yes|no (default: no), requires faac
 LIBDV=yes|no (default: no), requires libdv
+LIBMPEG2=yes|no (default: no), requires libmpeg2
+LIBV4L=yes|no (default: no), requires libv4l
 MJPEGTOOLS=yes|no (default: no), requires mjpegtools
 QUICKTIME=yes|no (default: no), requires libquicktime
 X264=yes|no (default: no), requires x264
 XVID=yes|no (default: no), requires xvidcore
+

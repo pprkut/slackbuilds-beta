@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=transcode
-VERSION=1.1.4
+VERSION=1.1.5
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -71,6 +71,10 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-netstream \
   --enable-alsa \
   --enable-v4l \
+  --enable-libv4l2=${LIBV4L:-no} \
+  --enable-libv4lconvert=${LIBV4L:-no} \
+  --enable-libmpeg2=${LIBMPEG2:-no} \
+  --enable-libmpeg2convert=${LIBMPEG2:-no} \
   --enable-ogg \
   --enable-vorbis \
   --enable-theora \
