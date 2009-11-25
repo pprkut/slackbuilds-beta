@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=phpMyAdmin
-VERSION=3.2.1
+VERSION=3.2.3
 ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_hmw}
@@ -69,6 +69,7 @@ else
   sed -i "s/\['auth_type'\] = 'cookie'/\['auth_type'\] = 'config'/" \
     $PKG/etc/phpMyAdmin/config.inc.php.new
   patch -p0 -d $PKG/etc/phpMyAdmin/ -i $CWD/config.inc.diff
+    rm -f $PKG/etc/phpMyAdmin/config.inc.php.new~
 fi
 
 install -m 0755 $CWD/pma-config $PKG/usr/sbin/pma-config
