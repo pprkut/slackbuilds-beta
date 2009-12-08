@@ -1,0 +1,6 @@
+ANTLR, (AN)other (T)ool for (L)anguage (R)ecognition - formerly known
+as PCCTS - is a language tool that provides a framework for
+constructing recognizers, compilers, and translators from grammatical
+descriptions containing actions in Java, C++, C# or Python.
+
+If you want support for C#, you need mono.

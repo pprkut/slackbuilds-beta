@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+     |-----handy-ruler-------------------------------------------------------|
+antlr: antlr (A parser generator for Java, C++, C#, and Python)
+antlr:
+antlr: ANTLR, (AN)other (T)ool for (L)anguage (R)ecognition - formerly known
+antlr: as PCCTS - is a language tool that provides a framework for
+antlr: constructing recognizers, compilers, and translators from grammatical
+antlr: descriptions containing actions in Java, C++, C# or Python.
+antlr:
+antlr: Homepage: http://www.antlr2.org/
+antlr:
+antlr:
+antlr:
