@@ -65,14 +65,7 @@ qmake \
 
 make qmake_all
 
-# use our CFLAGS
-#for i in common graph MetaSQL OpenRPT/export OpenRPT/import \
-# OpenRPT/import_gui OpenRPT/renderapp OpenRPT/renderer \
-# OpenRPT/writer OpenRPT/wrtembed; do
-#  sed -i "s/-O2/$SLKCFLAGS/" $i/Makefile
-#done
-
-# Build th libraries as shared libs instead of static libs.
+# Build shared libs instead of static libs.
 # This makes the xtuple and xtuple-updater binary somewhat smaller
 AR="AR            = ar cqs"
 RANLIB="RANLIB        = "
