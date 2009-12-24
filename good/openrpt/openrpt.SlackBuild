@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=openrpt
-VERSION=${VERSION:-3.1.0}
+VERSION=${VERSION:-3.1.1}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -59,16 +59,18 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-qmake
+qmake \
+  QMAKE_CFLAGS+="$SLKCFLAGS" \
+  QMAKE_CXXFLAGS+="$SLKCFLAGS" \
 
 make qmake_all
 
 # use our CFLAGS
-for i in common graph MetaSQL OpenRPT/export OpenRPT/import \
- OpenRPT/import_gui OpenRPT/renderapp OpenRPT/renderer \
- OpenRPT/writer OpenRPT/wrtembed; do
-  sed -i "s/-O2/$SLKCFLAGS/" $i/Makefile
-done
+#for i in common graph MetaSQL OpenRPT/export OpenRPT/import \
+# OpenRPT/import_gui OpenRPT/renderapp OpenRPT/renderer \
+# OpenRPT/writer OpenRPT/wrtembed; do
+#  sed -i "s/-O2/$SLKCFLAGS/" $i/Makefile
+#done
 
 # Build th libraries as shared libs instead of static libs.
 # This makes the xtuple and xtuple-updater binary somewhat smaller
