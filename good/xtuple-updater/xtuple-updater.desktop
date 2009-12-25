@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=xTuple Database Updater
+GenericName=xTuple Database Updater
+Comment=ERP, CRM and Accounting for SMEs, Updater
+Exec=xtuple-updater
+Icon=xtuple-updater.png
+Terminal=false
+Type=Application
+Categories=Application;Office
+StartupNotify=true

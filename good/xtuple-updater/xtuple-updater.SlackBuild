@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=xtuple-updater
-VERSION=${VERSION:-2.1.0}
+VERSION=${VERSION:-2.2.0}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -60,21 +60,33 @@ find . \
  -exec chmod 644 {} \;
 
 qmake \
+  QMAKE_CFLAGS+="$SLKCFLAGS" \
+  QMAKE_CXXFLAGS+="$SLKCFLAGS" \
   OPENRPT_DIR=/usr/include/openrpt \
   XTUPLE_DIR=/usr/include/xtuple
 
 make qmake_all
 
 for i in common loader builder; do
-  sed -i "s/-O2/$SLKCFLAGS/" $i/Makefile
   sed -i "s|..//usr/include/|/usr/include/|g" $i/Makefile
+  sed -i "s|/usr/include/openrpt/lib/libcommon.a||g" $i/Makefile
+  sed -i "s|/usr/include/openrpt/lib/librenderer.a||g" $i/Makefile
 done
 
 make
 
-mkdir -p $PKG/usr/bin
+mkdir -p $PKG/usr/bin $PKG/usr/share/applications
 
 install -m 0755 bin/updater $PKG/usr/bin/xtuple-updater
+
+install -m 0644 $CWD/xtuple-updater.desktop \
+    $PKG/usr/share/applications/xtuple-updater.desktop
+
+for i in 16 32 48 128; do
+  mkdir -p $PKG/usr/share/icons/hicolor/${i}x${i}/apps
+  install -m 0644 images/updater-${i}x${i}.png \
+    $PKG/usr/share/icons/hicolor/${i}x${i}/apps/xtuple-updater.png
+done
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -85,6 +97,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
