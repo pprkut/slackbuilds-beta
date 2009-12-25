@@ -1,0 +1,8 @@
+Rosegarden is an attractive, user-friendly MIDI and audio sequencer,
+notation editor, and general-purpose music composition and editing
+application for Unix and Linux.
+
+Rosegarden requires jack-audio-connection-kit, ladspa_sdk, dssi, liblo,
+lirc, liblrdf, lilypond, libsamplerate and libsndfile.
+Further rosegarden makes use of xml-twig at runtime.
+All dependencies (required and optional) are available at SlackBuilds.org.
