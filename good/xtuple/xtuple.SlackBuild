@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=xtuple
-VERSION=3.3.1
+VERSION=3.4.0
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -49,21 +49,23 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION-source
-tar xvf $CWD/$PRGNAM-$VERSION-source.tar.bz2
-cd $PRGNAM-$VERSION-source
+rm -rf $PRGNAM-client-$VERSION-source
+tar xvf $CWD/$PRGNAM-client-$VERSION-source.tar.bz2
+cd $PRGNAM-client-$VERSION-source
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
 cd xtuple
-  qmake OPENRPT_DIR=/usr/include/openrpt
+  qmake \
+    QMAKE_CFLAGS+="$SLKCFLAGS" \
+    QMAKE_CXXFLAGS+="$SLKCFLAGS" \
+    OPENRPT_DIR=/usr/include/openrpt
 
   make qmake_all
 
   # use our cflags and fix wrong path to the openrpt headers
   for i in common/Makefile widgets/Makefile \
    widgets/Makefile.dll guiclient/Makefile scriptapi/Makefile; do
-    sed -i "s/-O2/$SLKCFLAGS/" $i
     sed -i "s|..//usr/include/|/usr/include/|g" $i
   done
 
@@ -112,6 +114,13 @@ cd xtuple
   done
 
 cd -
+
+# remove duplicated library
+cd $PKG/usr/lib$LIBDIRSUFFIX/qt/plugins/designer
+  rm -f libxtuplewidgets.so
+  ln -s /usr/lib$LIBDIRSUFFIX/libxtuplewidgets.so libxtuplewidgets.so
+cd -
+
 
 mkdir -p $PKG/usr/share/applications
 

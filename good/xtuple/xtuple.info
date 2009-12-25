@@ -1,16 +1,16 @@
 PRGNAM="xtuple"
-VERSION="3.3.1"
+VERSION="3.4.0"
 HOMEPAGE="http://www.postbooks.org/"
-DOWNLOAD="http://downloads.sourceforge.net/postbooks/xtuple-3.3.1-source.tar.bz2 \
-    http://downloads.sourceforge.net/postbooks/init-3.3.1.sql \
-    http://downloads.sourceforge.net/postbooks/postbooks_demo-3.3.1.backup \
-    http://downloads.sourceforge.net/postbooks/postbooks_empty-3.3.1.backup \
-    http://downloads.sourceforge.net/postbooks/postbooks_quickstart-3.3.1.backup"
-MD5SUM="a8c60b8d1da4df13fdadaa5897abf133 \
+DOWNLOAD="http://downloads.sourceforge.net/postbooks/xtuple-client-3.4.0-source.tar.bz2 \
+    http://downloads.sourceforge.net/postbooks/init-3.4.0.sql \
+    http://downloads.sourceforge.net/postbooks/postbooks_demo-3.4.0.backup \
+    http://downloads.sourceforge.net/postbooks/postbooks_empty-3.4.0.backup \
+    http://downloads.sourceforge.net/postbooks/postbooks_quickstart-3.4.0.backup"
+MD5SUM="b5992a6227e47be34eb51ad276a3a06e \
     a298fef9515bdcb06ea05dac0240b2a9 \
-    3dc6181611f62c08fe89a67d35ad09c4 \
-    f9f5fbe0e11b60101dee65157cf9cf9e \
-    6dbd9a187cc740e3db2b3ee8110423bb"
+    2df4e0c9f59c8ef5e6bf0c58d7d3c0cf \
+    e60bc116a4d19d35623797102dc2a89b \
+    5db693d82bfbb5ad77d82de60fb4c26a"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 MAINTAINER="Heinz Wiesinger"
