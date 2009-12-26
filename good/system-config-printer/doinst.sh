@@ -16,3 +16,4 @@ if [ -x usr/bin/update-desktop-database ]; then
 fi
 
 config etc/dbus-1/system.d/newprinternotification.conf.new
+
