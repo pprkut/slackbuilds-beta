@@ -2,7 +2,7 @@
 
 # Slackware build script for nvidia-driver
 
-# Copyright 2007-2009 Heinz Wiesinger, Amsterdam, The Netherlands
+# Copyright 2007-2010 Heinz Wiesinger, Amsterdam, The Netherlands
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -67,6 +67,8 @@ cd usr/lib
   #Do not copy libvdpau and libvdpau_trace, those are now a separate script
   rm libvdpau.so.$VERSION vdpau/libvdpau_trace.so.$VERSION
   cp -a * $PKG/usr/lib$LIBDIRSUFFIX
+  #remove duplicate libnvidia-tls
+  rm libnvidia-tls.so.$VERSION
   #Rename those files which would overwrite xorg's original files
   for i in libGL.so.$VERSION libGLcore.so.$VERSION; do
     mv $PKG/usr/lib$LIBDIRSUFFIX/$i $PKG/usr/lib$LIBDIRSUFFIX/$i-nvidia ;
