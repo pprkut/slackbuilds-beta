@@ -2,7 +2,7 @@
 
 # Slackware build script for libvdpau
 
-# Copyright 2009 Heinz Wiesinger, Amsterdam, The Netherlands
+# Copyright 2009-2010 Heinz Wiesinger, Amsterdam, The Netherlands
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -69,12 +69,19 @@ CXXFLAGS="$SLKCFLAGS" \
 make
 make install-strip DESTDIR=$PKG
 
+# create a symlink for libvdpau_trace in /usr/lib$LIBDIRSUFFIX
+cd $PKG/usr/lib$LIBDIRSUFFIX
+  ln -sf vdpau/libvdpau_trace.so libvdpau_trace.so
+cd -
+
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS ChangeLog COPYING INSTALL NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
+mv $PKG/usr/share/doc/libvdpau/* $PKG/usr/doc/$PRGNAM-$VERSION/
+rm -rf $PKG/usr/share
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
