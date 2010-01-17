@@ -1,0 +1,3 @@
+Lessfs is an inline data deduplicating filesystem.
+
+This requires tokyocabinet.
