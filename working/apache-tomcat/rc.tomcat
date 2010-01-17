@@ -1,6 +1,6 @@
 #!/bin/sh
 # Start/stop/restart apache-tomcat.
-# $Id: rc.apache-tomcat,v 1.1 2009/10/04
+# $Id: rc.apache-tomcat,v 1.1.1 2010/01/17
 # Author: Heinz Wiesinger <pprkut@liwjatan.at>
 # ---------------------------------------------------------------------------
 
@@ -19,14 +19,16 @@ TOMCAT_CMD="/usr/bin/jsvc -user $USER -cp $CLASSPATH \
   org.apache.catalina.startup.Bootstrap"
 
 tomcat_start() {
-  echo "Starting Apache Tomcat ... "
+  echo -n "Starting Apache Tomcat ... "
   cd /var/lib/tomcat
     $TOMCAT_CMD
+  echo "done"
 }
 
 tomcat_stop() {
-  echo "Stopping Apache Tomcat ... "
+  echo -n "Stopping Apache Tomcat ... "
   kill -TERM `cat $PIDFILE` > /dev/null 2>&1
+  echo "done"
 }
 
 # Restart tomcat:

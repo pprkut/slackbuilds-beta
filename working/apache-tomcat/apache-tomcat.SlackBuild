@@ -37,12 +37,12 @@ TOMCAT_HOME=/var/lib/tomcat
 
 if ! grep ^tomcat: /etc/group 2>&1 > /dev/null; then
   echo "  Must have a tomcat group to run this script."
-  echo "    # groupadd -g 228 tomcat"
+  echo "    # groupadd -g 232 tomcat"
   echo "  Or something similar."
   exit 1
 elif ! grep ^tomcat: /etc/passwd 2>&1 > /dev/null; then
   echo "  Must have a tomcat user to run this script."
-  echo "    # useradd -u 228 -g tomcat -d /var/lib/tomcat tomcat"
+  echo "    # useradd -u 232 -g tomcat -d /var/lib/tomcat tomcat"
   echo "  Or something similar."
   exit 1
 fi
@@ -55,6 +55,12 @@ cd $TMP
 rm -rf $PRGNAM-$VERSION
 unzip $CWD/$PRGNAM-$VERSION.zip
 cd $PRGNAM-$VERSION
+chown -R root:root .
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
 
 mkdir -p $PKG/etc/tomcat $PKG/usr/share/{tomcat,java} \
   $PKG/var/{run,lib,log,tmp,spool}/tomcat
@@ -71,19 +77,21 @@ ln -s /var/tmp/tomcat ${PKG}${TOMCAT_HOME}/temp
 ln -s /var/run/tomcat ${PKG}${TOMCAT_HOME}/work
 ln -s /etc/tomcat ${PKG}${TOMCAT_HOME}/conf
 
-chgrp -R tomcat ${PKG}${TOMCAT_HOME}/webapps
-chmod -R 774 ${PKG}${TOMCAT_HOME}/webapps
-chgrp -R tomcat ${PKG}/etc/tomcat
-chmod -R 774 ${PKG}/etc/tomcat
-chgrp -R tomcat ${PKG}/var/tmp/tomcat
-chmod -R 774 ${PKG}/var/tmp/tomcat
-chgrp -R tomcat ${PKG}/var/run/tomcat
-chmod -R 774 ${PKG}/var/run/tomcat
-chgrp -R tomcat ${PKG}/var/spool/tomcat
-chmod -R 774 ${PKG}/var/spool/tomcat
+for i in tmp run spool log; do
+    chown -R tomcat:tomcat ${PKG}/var/${i}/tomcat
+    chmod -R 775 ${PKG}/var/${i}/tomcat
+done
 
-chgrp tomcat $PKG/usr/share/tomcat/bin/*.sh
-chmod 774 $PKG/usr/share/tomcat/bin/*.sh
+for i in /etc/tomcat ${TOMCAT_HOME}/webapps; do
+  chown -R tomcat:tomcat ${PKG}${i}
+  chmod -R 750 ${PKG}${i}
+done
+
+chown -R tomcat:tomcat ${PKG}${TOMCAT_HOME}
+chmod -R 755 ${PKG}${TOMCAT_HOME}
+
+chown tomcat:tomcat $PKG/usr/share/tomcat/bin/*.sh
+chmod 744 $PKG/usr/share/tomcat/bin/*.sh
 
 cd $PKG/usr/share/java
   for jar in ../../../usr/share/tomcat/lib/*.jar ; do
