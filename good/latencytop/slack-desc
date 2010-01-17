@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+          |-----handy-ruler------------------------------------------------|
+latencytop: latencytop (latency diagnosis tool)
+latencytop:
+latencytop: LatencyTOP is a Linux* tool for software developers (both
+latencytop: kernel and userspace), aimed at identifying where in the
+latencytop: system latency is happening, and what kind of operation/action
+latencytop: is causing the latency to happen so that the code can be
+latencytop: changed to avoid the worst latency hiccups.
+latencytop:
+latencytop: Homepage: http://www.latencytop.org
+latencytop:
+latencytop:
