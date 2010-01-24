@@ -16,4 +16,5 @@ If you use qjackctl to start jack, it will need the same capabilities set to be
 able to start jack as non-root user. You can use the same command just with
 'qjackctl' instead of 'jackd'
 
-jack optionally uses libsndfile which is also available at SlackBuilds.org.
+jack optionally uses libsndfile, libffado and celt, which are all available
+at SlackBuilds.org.
