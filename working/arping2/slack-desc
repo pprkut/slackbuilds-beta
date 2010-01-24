@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       |-----handy-ruler-------------------------------------------------------|
+arping2: arping2 (send arp and/or ip pings to a given host)
+arping2:
+arping2: Arping is a util to find out it a specific IP address on the LAN is
+arping2: 'taken' and what MAC address owns it. Sure, you *could* just use
+arping2: 'ping' to find out if it's taken and even if the computer blocks
+arping2: ping (and everything else) you still get an entry in your ARP cache.
+arping2: But what if you aren't on a routable net? Or the host blocks ping
+arping2: (all ICMP even)? Then you're screwed. Or you use arping.
+arping2:
+arping2: Homepage: http://www.habets.pp.se/synscan/programs.php?prog=arping
+arping2:
