@@ -72,6 +72,9 @@ make \
 mkdir -p $PKG/usr/man/man8
 install -m 644 doc/hwinfo.8 $PKG/usr/man/man8/
 
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
 ( cd $PKG/usr/man
   find . -type f -exec gzip -9 {} \;
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
