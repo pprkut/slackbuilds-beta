@@ -1,0 +1,124 @@
+#!/bin/sh
+
+# Slackware build script for xtreemfs
+
+# Copyright 2010 Heinz Wiesinger, Amsterdam, The Netherlands
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+SRCNAM=XtreemFS
+PRGNAM=$(echo $SRCNAM | tr [:upper:] [:lower:])
+VERSION=1.2.0
+ARCH=${ARCH:-i486}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+fi
+
+set -e
+
+if ! grep ^xtreemfs: /etc/passwd 2>&1 > /dev/null; then
+  echo "  Must have a xtreemfs user to run this script."
+  echo "    # useradd -u 233 -g 1 -d /var/lib/xtreemfs xtreemfs"
+  echo "  Or something similar."
+  exit 1
+fi
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $SRCNAM-$VERSION
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+cd $SRCNAM-$VERSION
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+CCFLAGS="$SLKCFLAGS" \
+make \
+  BIN_DIR="/usr/bin/" \
+  MAN_DIR="/usr/man/man1/" \
+  XTREEMFS_CONFIG_PARENT_DIR="/etc/xos" \
+  XTREEMFS_INIT_DIR="/etc/rc.d/" \
+  XTREEMFS_JAR_DIR="/usr/share/java/"
+
+CCFLAGS="$SLKCFLAGS" \
+make \
+  BIN_DIR="$PKG/usr/bin/" \
+  MAN_DIR="$PKG/usr/man/man1/" \
+  XTREEMFS_CONFIG_PARENT_DIR="$PKG/etc/xos" \
+  XTREEMFS_INIT_DIR="$PKG/etc/rc.d/" \
+  XTREEMFS_JAR_DIR="$PKG/usr/share/java/" \
+  DESTDIR=$PKG \
+  install
+
+cd $PKG/etc/rc.d/
+  for i in *; do
+    mv $i rc.$i.new
+  done
+cd -
+
+mkdir -p $PKG/var/{lib,log}/xtreemfs
+chown -R xtreemfs:root $PKG/var/{lib,log}/xtreemfs
+
+# remove unnecessary install scripts
+rm -f $PKG/etc/xos/xtreemfs/generate_uuid
+rm -f $PKG/etc/xos/xtreemfs/postinstall_setup.sh
+
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+)
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS ChangeLog COPYING README* \
+  $PKG/usr/doc/$PRGNAM-$VERSION
+rm -rf $PKG/usr/share/doc
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+# Let's not clobber config files
+cd $PKG/etc/xos/xtreemfs
+  for i in * ; do
+    mv $i $i.new
+    echo "config etc/xos/xtreemfs/$i.new" >> $PKG/install/doinst.sh
+  done
+cd -
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

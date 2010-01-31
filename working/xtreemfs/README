@@ -1,0 +1,13 @@
+XTREEMFS is a distributed and replicated file system for the
+Internet. Clients and servers can be distributed world-wide.
+XtreemFS allows you to mount and access your files via the internet
+from anywhere. You can also easily replicate your files across
+data-centers to reduce network consumption, latency and increase
+data availability.
+
+Once installed you have to define uuids for the available services,
+mrc and osd. I haven't quite figured out what exactly to do here yet,
+but it is related to uuidgen and the "uuid = " lines in the config
+files.
+
+xtreemfs requires apache-ant and the jdk package from /extra
