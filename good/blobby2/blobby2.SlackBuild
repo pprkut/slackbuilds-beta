@@ -68,6 +68,12 @@ cd build
   make install DESTDIR=$PKG
 cd -
 
+mkdir -p $PKG/usr/share/{applications,pixmaps}
+install -m 0644 $CWD/$PRGNAM.desktop $PKG/usr/share/applications/
+
+convert -size 48x48 -transparent black data/Icon.bmp $PRGNAM.png
+install -m 0644 $PRGNAM.png $PKG/usr/share/pixmaps/
+
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
