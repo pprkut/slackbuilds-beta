@@ -1,7 +1,7 @@
 #!/bin/sh
 # Start/stop/restart apache-tomcat.
-# $Id: rc.apache-tomcat,v 1.1.1 2010/01/17
-# Author: Heinz Wiesinger <pprkut@liwjatan.at>
+# $Id: rc.apache-tomcat,v 1.1.1 2010/02/03
+# Authors: Heinz Wiesinger <pprkut@liwjatan.at>, Vincent Batts <vbatts@hashbangbash.com>
 # ---------------------------------------------------------------------------
 
 PIDFILE="/var/spool/tomcat/tomcat.pid"
@@ -14,8 +14,21 @@ done
 
 USER="tomcat"
 
+# Initial size of memory allocation pool
+MEMALLOC_MIN="512m"
+
+# Maximum size of memory allocation pool
+MEMALLOC_MAX="1024m"
+
+# Thread stack size
+STACK="128k"
+
+# Maximum amount of heap used for permanent generation
+MAXPERMSIZE="512m"
+
 TOMCAT_CMD="/usr/bin/jsvc -user $USER -cp $CLASSPATH \
   -pidfile $PIDFILE -outfile $LOGFILE -errfile $LOGFILE \
+  -Xms$MEMALLOC_MIN -Xmx$MEMALLOC_MAX -Xss$STACK -XX:MaxPermSize=$MAXPERMSIZE \
   org.apache.catalina.startup.Bootstrap"
 
 tomcat_start() {
