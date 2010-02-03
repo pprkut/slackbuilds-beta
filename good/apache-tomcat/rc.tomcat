@@ -1,6 +1,6 @@
 #!/bin/sh
 # Start/stop/restart apache-tomcat.
-# $Id: rc.apache-tomcat,v 1.1.1 2010/02/03
+# $Id: rc.apache-tomcat,v 1.1.2 2010/02/03
 # Authors: Heinz Wiesinger <pprkut@liwjatan.at>, Vincent Batts <vbatts@hashbangbash.com>
 # ---------------------------------------------------------------------------
 
