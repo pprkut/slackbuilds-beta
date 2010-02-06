@@ -24,7 +24,7 @@
 
 SRCNAM=XtreemFS
 PRGNAM=$(echo $SRCNAM | tr [:upper:] [:lower:])
-VERSION=1.2.0
+VERSION=1.2.1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
