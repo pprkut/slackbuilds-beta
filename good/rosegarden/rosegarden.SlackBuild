@@ -26,7 +26,7 @@
 # No additional license terms  :-)
 
 PRGNAM=rosegarden
-SRCVER=10.02-pre
+SRCVER=10.02-rc1
 VERSION=$(echo $SRCVER | tr - _)
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
@@ -53,9 +53,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$SRCVER
+rm -rf $PRGNAM-10.02
 tar xvf $CWD/$PRGNAM-$SRCVER.tar.bz2
-cd $PRGNAM-$SRCVER
+cd $PRGNAM-10.02
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
