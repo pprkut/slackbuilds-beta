@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+Name=dbmodel
+GenericName=Database Modeller
+Icon=dbmodel
+Exec=dbmodel
+Terminal=false
+Categories=Development;
