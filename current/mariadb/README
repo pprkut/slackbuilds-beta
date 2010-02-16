@@ -1,0 +1,26 @@
+MariaDB is a backward compatible, drop-in replacement branch of the
+MySQL(R) Database Server. It includes all major open source storage
+engines, including the Maria storage engine.
+
+This conflicts with Slackware's mysql package. Do NOT install both!
+
+If you want to build the embedded mysql server (libmysqld), pass
+EMBEDDED=yes to the script. Note that you need that if you plan
+on (re)building amarok.
+
+WARNING: This does NOT have the innodb engine enabled by default.
+Here's what you have to do *after* installing the package:
+
+ -) comment any innodb specific options in /etc/my.cnf (innodb_*),
+    otherwise the database server won't start
+
+ -) start the database server and login (as a user who has priviledges
+    to edit the mysql.* tables)
+
+ -) uncomment the previously commented options in /etc/my.cnf again.
+    Do NOT restart the database server yet!!
+
+ -) execute the following query:
+        INSTALL PLUGIN innodb SONAME "ha_innodb.so";
+
+ -) Now everything should be working again as expected
