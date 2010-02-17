@@ -71,30 +71,34 @@ CFLAGS="$SLKCFLAGS" \
   --enable-multilib \
   --enable-64-bit-bfd \
   --enable-targets=$CROSS-slackware-linux \
-  --build=$ARCH-slackware-linux
+  --build=$ARCH-slackware-linux \
+  --target=$CROSS-slackware-linux
 
 make clean
 make
 make install DESTDIR=$PKG
 
 # "make install" skips this, but binutils.spec doesn't.  Sneaky, huh?
-cp -a include/libiberty.h $PKG/opt/cross-$CROSS/include/libiberty.h
+cp -a include/libiberty.h \
+  $PKG/opt/cross-$CROSS/$ARCH-slackware-linux/$CROSS-slackware-linux/include/libiberty.h
 
 # Differentiate between BSD strings and GNU strings
-( cd $PKG/opt/cross-$CROSS/bin ; mv strings strings-GNU )
-( cd $PKG/opt/cross-$CROSS/man/man1 ; mv strings.1 strings-GNU.1 )
+mv $PKG/opt/cross-$CROSS/bin/$CROSS-slackware-linux-strings \
+  $PKG/opt/cross-$CROSS/bin/$CROSS-slackware-linux-strings-GNU
+mv $PKG/opt/cross-$CROSS/man/man1/$CROSS-slackware-linux-strings.1 \
+  $PKG/opt/cross-$CROSS/man/man1/$CROSS-slackware-linux-strings-GNU.1
 
 # Move ldscripts to /usr/lib${LIBDIRSUFFIX}, and then put symlinks in place
-mv $PKG/opt/cross-$CROSS/${ARCH}-slackware-linux/lib/ldscripts $PKG/opt/cross-$CROSS/lib${LIBDIRSUFFIX}
-( cd $PKG/opt/cross-$CROSS/${ARCH}-slackware-linux
+mv $PKG/opt/cross-$CROSS/${CROSS}-slackware-linux/lib/ldscripts $PKG/opt/cross-$CROSS/lib${LIBDIRSUFFIX}
+cd $PKG/opt/cross-$CROSS/${CROSS}-slackware-linux
   ln -s /opt/cross-$CROSS/lib${LIBDIRSUFFIX}/ldscripts lib/ldscripts
   for FILE in ar as ld nm objcopy objdump ranlib strip ; do
     if [ -r "/opt/cross-$CROSS/bin/$FILE" ]; then
       rm -f bin/$FILE
-      ln -s /opt/cross-$CROSS/bin/$FILE bin/$FILE
+      ln -s /opt/cross-$CROSS/bin/$CROSS-slackware-linux-$FILE bin/$FILE
     fi
   done
-)
+cd -
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" \
   | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
@@ -119,7 +123,7 @@ chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 
 # Add slack-desc:
 mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
+sed "s/CROSS_ARCH/$CROSS/g" $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
