@@ -1,0 +1,3 @@
+This SlackBuild can compile cross compilers for various archictectures
+running on a 32-bit Slackware system.
+The main goal is to provide a i486->x86_64 cross compiler

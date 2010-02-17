@@ -1,0 +1,11 @@
+PRGNAM="cross-binutils"
+VERSION="2.18.50.0.9"
+HOMEPAGE="http://www.gnu.org/software/binutils/"
+DOWNLOAD="http://www.kernel.org/pub/linux/devel/binutils/binutils-2.18.50.0.9.tar.bz2 \
+    http://www.kernel.org/pub/linux/devel/binutils/release.binutils-2.18.50.0.9"
+MD5SUM="68e3510d9c790b134450c0a243c251cd \
+    45a9b8400ae51bda524feccfd058f6aa"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
+MAINTAINER="Heinz Wiesinger"
+EMAIL="pprkut@liwjatan.at"
