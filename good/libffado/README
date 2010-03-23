@@ -7,4 +7,5 @@ considered less important. The most obvious example of a consumer
 feature is AC3/DTS passthrough support, which is unsupported at
 the moment.
 
-libffado requires libiec61883, also available from SlackBuilds.org
+libffado requires libiec61883, libxml++ and scons, also available
+from SlackBuilds.org
