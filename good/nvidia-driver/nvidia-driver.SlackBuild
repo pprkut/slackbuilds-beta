@@ -25,7 +25,7 @@
 # Thanks to Robby Workman for suggestions to improve this script.
 
 PRGNAM=nvidia-driver
-VERSION=190.53
+VERSION=195.36.15
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -60,7 +60,11 @@ chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
 mkdir -p $PKG/usr/{bin,share,lib$LIBDIRSUFFIX,sbin} $PKG/usr/include/GL \
-  $PKG/usr/lib$LIBDIRSUFFIX/xorg/modules/{drivers,extensions}
+  $PKG/usr/lib$LIBDIRSUFFIX/xorg/modules/{drivers,extensions} $PKG/etc
+
+cd etc
+  cp -rf OpenCL $PKG/etc/
+cd -
 
 # Start with the libraries
 cd usr/lib
@@ -95,6 +99,7 @@ cd usr/include/GL
 cd -
 
 cp -a usr/include/cuda $PKG/usr/include/cuda
+cp -a usr/include/CL $PKG/usr/include/CL
 
 # Next come the apps
 cp -a nvidia-installer $PKG/usr/bin/
@@ -121,6 +126,8 @@ cd $PKG/usr/lib$LIBDIRSUFFIX
   ln -sf tls/libnvidia-tls.so.$VERSION libnvidia-tls.so.1
   ln -sf vdpau/libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so
   ln -sf libXvMCNVIDIA.so.$VERSION libXvMCNVIDIA_dynamic.so.1
+  ln -sf libOpenCL.so.1.0.0 libOpenCL.so.1
+  ln -sf libOpenCL.so.1 libOpenCL.so
 cd -
 
 cd $PKG/usr/lib$LIBDIRSUFFIX/tls
