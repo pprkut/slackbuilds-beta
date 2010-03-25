@@ -28,7 +28,7 @@
 # Modified for MariaDB by Heinz Wiesinger <pprkut@liwjatan.at>
 
 PRGNAM=mariadb
-VERSION=5.1.42
+VERSION=5.1.44
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -70,6 +70,8 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+patch -p1 -i $CWD/mysql-5.1.44-crash-fix.patch
+ 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS -felide-constructors -fno-exceptions -fno-rtti" \
 CXX=gcc \
