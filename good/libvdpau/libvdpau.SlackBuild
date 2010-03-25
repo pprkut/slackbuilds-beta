@@ -63,6 +63,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-static \
   --build=$ARCH-slackware-linux
 
@@ -80,8 +81,6 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS ChangeLog COPYING INSTALL NEWS README \
   $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/usr/share/doc/libvdpau/* $PKG/usr/doc/$PRGNAM-$VERSION/
-rm -rf $PKG/usr/share
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
