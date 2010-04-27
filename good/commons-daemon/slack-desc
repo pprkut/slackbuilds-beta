@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+              |-----handy-ruler-------------------------------------------------------|
+commons-daemon: commons-daemon (Jakarta Commons Daemon Package)
+commons-daemon:
+commons-daemon: The scope of this package is to define an API in line with the current
+commons-daemon: Java(tm) Platform APIs to support an alternative invocation
+commons-daemon: mechanism which could be used instead of the above mentioned public
+commons-daemon: static void main(String[]) method. This specification cover the
+commons-daemon: behavior and life cycle of what we define as Java(tm) daemons, or, in
+commons-daemon: other words, non interactive Java(tm) applications.
+commons-daemon:
+commons-daemon: Homepage: http://commons.apache.org/daemon/index.html
+commons-daemon:
