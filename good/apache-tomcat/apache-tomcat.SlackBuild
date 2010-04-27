@@ -24,7 +24,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=apache-tomcat
-VERSION=6.0.24
+VERSION=6.0.26
 ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -91,6 +91,10 @@ chown -R tomcat:tomcat ${PKG}${TOMCAT_HOME}
 chmod -R 755 ${PKG}${TOMCAT_HOME}
 chmod -R 775 ${PKG}${TOMCAT_HOME}/webapps
 
+chown root:tomcat $PKG/etc/tomcat
+chown tomcat:tomcat $PKG/etc/tomcat/tomcat-users.xml
+chmod 775 $PKG/etc/tomcat
+
 chown tomcat:tomcat $PKG/usr/share/tomcat/bin/*.sh
 chmod 744 $PKG/usr/share/tomcat/bin/*.sh
 
@@ -110,6 +114,7 @@ setenv CATALINA_BASE $TOMCAT_HOME
 setenv CATALINA_TMPDIR /var/tmp/tomcat
 setenv CATALINA_LIBDIR /usr/share/tomcat/lib
 EOF
+
 cat << EOF > $PKG/etc/profile.d/$PRGNAM.sh
 #!/bin/sh
 export CATALINA_HOME=/usr/share/tomcat
@@ -117,6 +122,7 @@ export CATALINA_BASE=$TOMCAT_HOME
 export CATALINA_TMPDIR=/var/tmp/tomcat
 export CATALINA_LIBDIR=/usr/share/tomcat/lib
 EOF
+
 chmod 0755 $PKG/etc/profile.d/*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

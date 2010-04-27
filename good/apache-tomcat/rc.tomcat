@@ -24,15 +24,24 @@ TOMCAT_CMD="/usr/bin/jsvc -user $USER -cp $CLASSPATH \
 
 tomcat_start() {
   echo -n "Starting Apache Tomcat ... "
-  cd /var/lib/tomcat
-    $TOMCAT_CMD
-  echo "done"
+  if [ -e "$PIDFILE" ]; then
+    echo "already running!"
+  else
+    cd /var/lib/tomcat
+      $TOMCAT_CMD
+    echo "done!"
+  fi
 }
 
 tomcat_stop() {
   echo -n "Stopping Apache Tomcat ... "
-  kill -TERM $(cat $PIDFILE) > /dev/null 2>&1
-  echo "done"
+  if [ -e "$PIDFILE" ]; then
+    kill -TERM $(cat $PIDFILE) > /dev/null 2>&1
+    echo "done!"
+    rm -f "$PIDFILE"
+  else
+    echo "not running!"
+  fi
 }
 
 # Restart tomcat:
