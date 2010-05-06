@@ -25,7 +25,7 @@
 PRGNAM=ming
 VERSION=0.4.3
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -57,6 +57,8 @@ tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
 cd $PRGNAM-$VERSION
 chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
+
+patch -p0 -i $CWD/ming-libpng14.diff
 
 # static library is activated because the perl extension needs it
 CFLAGS="$SLKCFLAGS" \

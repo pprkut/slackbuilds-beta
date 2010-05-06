@@ -1,0 +1,20 @@
+--- src/blocks/pngdbl.c.old	2010-02-28 17:15:51.402559300 +0800
++++ src/blocks/pngdbl.c	2010-02-28 17:17:39.246030599 +0800
+@@ -49,7 +49,7 @@
+ 
+ 	if(fread(header, 1, 8, fp) != 8)
+ 		return NULL;
+-	if(!png_check_sig(header, 8))
++	if(png_sig_cmp(header, 0, 8))
+ 		return NULL;
+ 	result = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+ 	if(!result)
+@@ -69,7 +69,7 @@
+ 	
+ 	if(SWFInput_read(input, header, 8) != 8)
+ 		return NULL;
+-	if(!png_check_sig(header, 8))
++	if(png_sig_cmp(header, 0, 8))
+ 		return NULL;
+ 	result = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
+ 	if(!result)
