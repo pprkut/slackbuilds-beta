@@ -30,7 +30,7 @@
 PRGNAM=mariadb
 VERSION=5.1.44
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -71,7 +71,7 @@ find . \
  -exec chmod 644 {} \;
 
 patch -p1 -i $CWD/mysql-5.1.44-crash-fix.patch
- 
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS -felide-constructors -fno-exceptions -fno-rtti" \
 CXX=gcc \
@@ -98,6 +98,21 @@ CXX=gcc \
 make
 
 make install DESTDIR=$PKG
+
+# install additional headers needed for building external engine plugins
+for i in sql include regex; do
+  for j in $i/*.h; do
+    install -m 644 $j $PKG/usr/include/mysql/
+  done
+done
+
+mkdir -p $PKG/usr/include/mysql/atomic
+for i in include/atomic/*.h; do
+  install -m 644 $i $PKG/usr/include/mysql/atomic/
+done
+
+install -m 644 storage/maria/ma_{pagecache,loghandler_lsn}.h $PKG/usr/include/mysql/
+sed -i "s|../storage/maria/ma_pagecache.h|ma_pagecache.h|" $PKG/usr/include/mysql/maria.h
 
 # The ./configure option to omit this has gone away, so we'll omit it
 # the old-fashioned way.  It's all in the source tarball if you need it.

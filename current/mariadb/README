@@ -18,9 +18,11 @@ Here's what you have to do *after* installing the package:
     to edit the mysql.* tables)
 
  -) uncomment the previously commented options in /etc/my.cnf again.
-    Do NOT restart the database server yet!!
+    Do NOT restart the database server!!
 
  -) execute the following query:
         INSTALL PLUGIN innodb SONAME "ha_innodb.so";
+    This reloads the database server and comfigures it to load the
+    innodb plugin on every start.
 
  -) Now everything should be working again as expected
